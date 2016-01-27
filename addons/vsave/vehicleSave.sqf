@@ -48,7 +48,7 @@ if (_success) then {
 	_vehicle setVariable ["ownerN", name player, true];
 	_vehicle setVariable ["baseSaving_spawningTime", nil, true];
 	_vehicle setVariable ["baseSaving_hoursAlive", nil, true];
-	_vehicle call RespawnRemove;
+	[_vehicle] remoteExec [2, "A3W_fnc_vehRespawnRemove"];
 	titleText ["Vehicle Save Complete!","PLAIN DOWN"]; titleFadeOut 5;
 };
 _success;

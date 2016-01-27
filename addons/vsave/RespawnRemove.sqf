@@ -4,7 +4,7 @@
 //@file Created: 26/01/2016
 
 private "_veh";
-_veh = cursorTarget;
+_veh = param [0, objNull, [objNull]];
 
 if (!isNil "A3W_respawningVehicles") then
 {
