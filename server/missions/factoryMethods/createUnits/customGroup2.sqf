@@ -63,7 +63,8 @@ for "_i" from 1 to _nbUnits do
 			_unit addMagazine "30Rnd_65x39_caseless_green_mag_Tracer";
 			_unit addMagazine "30Rnd_65x39_caseless_green_mag_Tracer";
 			_unit addMagazine "30Rnd_65x39_caseless_green_mag_Tracer";
-			_unit addWeapon "arifle_Katiba_ARCO_F";
+			_unit addWeapon "arifle_Katiba_F";
+			_unit addPrimaryWeaponItem "optic_Arco";
 			_unit addBackpack "B_Carryall_oli";
 			_unit addMagazine "NLAW_F";
 			_unit addWeapon "launch_NLAW_F";
@@ -79,7 +80,9 @@ for "_i" from 1 to _nbUnits do
 				_unit addMagazine "30Rnd_45ACP_Mag_SMG_01";
 				_unit addMagazine "30Rnd_45ACP_Mag_SMG_01";
 				_unit addMagazine "30Rnd_45ACP_Mag_SMG_01";
-				_unit addWeapon "SMG_01_Holo_pointer_snds_F";
+				_unit addWeapon "SMG_01_F";
+				_unit addPrimaryWeaponItem "optic_Holosight_smg";
+				_unit addPrimaryWeaponItem "muzzle_snds_acp";
 				_unit addItem "ItemGps";
 				_unit assignItem "ItemGps";
 				_unit addItem "ItemCompass";
@@ -89,7 +92,8 @@ for "_i" from 1 to _nbUnits do
 			else
 			{
 				_unit addMagazine "30Rnd_556x45_Stanag_Tracer_Red";
-				_unit addWeapon "arifle_TRG20_Holo_F";
+				_unit addWeapon "arifle_TRG20_F";
+				_unit addPrimaryWeaponItem "optic_Holosight";
 				_unit addMagazine "30Rnd_556x45_Stanag_Tracer_Red";
 				_unit addMagazine "30Rnd_556x45_Stanag_Tracer_Red";
 				_unit addMagazine "30Rnd_556x45_Stanag_Tracer_Red";

@@ -20,7 +20,7 @@ private ["_soldierTypes", "_uniformTypes", "_vestTypes", "_weaponTypes", "_group
 _soldierTypes = ["C_man_polo_1_F", "C_man_polo_2_F", "C_man_polo_3_F", "C_man_polo_4_F", "C_man_polo_5_F", "C_man_polo_6_F"];
 _uniformTypes = ["U_IG_Guerilla1_1","U_IG_Guerilla2_3","U_IG_Guerilla2_1"];
 _vestTypes = ["V_PlateCarrier1_rgr","V_PlateCarrier2_rgr"];
-_weaponTypes = ["LMG_Mk200_MRCO_F","srifle_EBR_ARCO_pointer_snds_F","arifle_MXM_Hamr_pointer_F","arifle_Katiba_ARCO_pointer_F"];
+_weaponTypes = ["LMG_Mk200_F","srifle_EBR_F","arifle_MXM_F","arifle_Katiba_F"];
 
 _group = _this select 0;
 _position = _this select 1;
@@ -29,6 +29,7 @@ _rank = param [2, "", [""]];
 _soldier = _group createUnit [_soldierTypes call BIS_fnc_selectRandom, _position, [], 0, "NONE"];
 _soldier addUniform (_uniformTypes call BIS_fnc_selectRandom);
 _soldier addVest (_vestTypes call BIS_fnc_selectRandom);
+_soldier addPrimaryWeaponItem "optic_Arco";
 [_soldier, _weaponTypes call BIS_fnc_selectRandom, 3] call BIS_fnc_addWeapon;
 
 if (_rank != "") then

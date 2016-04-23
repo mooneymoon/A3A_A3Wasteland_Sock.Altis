@@ -46,7 +46,8 @@ support_loadout = {
   _unit addBackpack "B_Carryall_oli";
   _unit addMagazine "200Rnd_65x39_cased_Box";
   _unit addMagazine "200Rnd_65x39_cased_Box";
-  _unit addWeapon "LMG_Mk200_MRCO_F";
+  _unit addWeapon "LMG_Mk200_F";
+  _unit addPrimaryWeaponItem "optic_MRCO";
   _unit addUniform "U_IG_Guerilla1_1";
   _unit addMagazine "200Rnd_65x39_cased_Box";
   _unit addItem "FirstAidKit";
@@ -64,7 +65,9 @@ sniper_loadout = {
   _unit addMagazine "30Rnd_65x39_caseless_mag";
   _unit addMagazine "30Rnd_65x39_caseless_mag";
   _unit addMagazine "30Rnd_65x39_caseless_mag";
-  _unit addWeapon "arifle_MXM_Hamr_pointer_F";
+  _unit addWeapon "arifle_MXM_F";
+  _unit addPrimaryWeaponItem "optic_Hamr";
+  _unit addPrimaryWeaponItem "acc_pointer_IR";
   _unit addPrimaryWeaponItem "muzzle_snds_H";
   _unit addMagazine "30Rnd_65x39_caseless_mag";
   _unit addItem "Rangefinder";
@@ -86,7 +89,9 @@ aa_loadout = {
   _unit addMagazine "30Rnd_9x21_Mag";
   _unit addMagazine "30Rnd_9x21_Mag";
   _unit addMagazine "30Rnd_9x21_Mag";
-  _unit addWeapon "SMG_02_ARCO_pointg_F";
+  _unit addWeapon "SMG_02_F";
+  _unit addPrimaryWeaponItem "optic_Arco";
+  _unit addPrimaryWeaponItem "acc_pointer_IR";
   _unit addBackpack "B_Carryall_oli";
   _unit addMagazine "Titan_AA";
   _unit addWeapon "launch_Titan_F";
@@ -104,7 +109,9 @@ at_loadout = {
   _unit addMagazine "30Rnd_45ACP_Mag_SMG_01";
   _unit addMagazine "30Rnd_45ACP_Mag_SMG_01";
   _unit addMagazine "30Rnd_45ACP_Mag_SMG_01";
-  _unit addWeapon "SMG_01_Holo_pointer_snds_F";
+  _unit addWeapon "SMG_01_F";
+  _unit addPrimaryWeaponItem "optic_Holosight_smg";
+  _unit addPrimaryWeaponItem "muzzle_snds_acp";
   _unit addBackpack "B_Carryall_oli";
   _unit addMagazine "NLAW_F";
   _unit addWeapon "launch_NLAW_F";
@@ -123,7 +130,9 @@ leader_loadout = {
   _unit addMagazine "30Rnd_65x39_caseless_green_mag_Tracer";
   _unit addMagazine "30Rnd_65x39_caseless_green_mag_Tracer";
   _unit addMagazine "30Rnd_65x39_caseless_green_mag_Tracer";
-  _unit addWeapon "arifle_Katiba_ARCO_pointer_F";
+  _unit addWeapon "arifle_Katiba_F";
+  _unit addPrimaryWeaponItem "optic_Arco";
+  _unit addPrimaryWeaponItem "acc_pointer_IR";
   _unit addBackpack "B_Carryall_oli";
   _unit addMagazine "NLAW_F";
   _unit addWeapon "launch_NLAW_F";
@@ -145,7 +154,8 @@ rifleman_loadout = {
   _unit addBackpack "B_AssaultPack_rgr";
   _unit addMagazine "30Rnd_65x39_caseless_mag_Tracer";
   _unit addMagazine "30Rnd_65x39_caseless_mag_Tracer";
-  _unit addWeapon "arifle_MX_ACO_F";
+  _unit addWeapon "arifle_MX_F";
+  _unit addPrimaryWeaponItem "optic_Aco";
   _unit addMagazine "30Rnd_65x39_caseless_mag_Tracer";
   _unit addPrimaryWeaponItem "acc_flashlight";
   _unit enablegunlights "forceOn";
