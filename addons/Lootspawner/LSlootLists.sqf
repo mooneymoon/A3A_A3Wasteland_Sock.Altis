@@ -20,8 +20,7 @@ lootWeapon_list =
 			"arifle_TRG21_F",
 			"Binocular",
 			"hgun_PDW2000_F",
-			"SMG_01_F",                         // Vermin .45 ACP
-			"SMG_02_F"                          // Sting 9mm
+			"SMG_01_F"
 		]
 	],
 	[ // MILITARY
@@ -47,8 +46,7 @@ lootWeapon_list =
 			"LMG_Mk200_F",
 			"LMG_Zafir_F",
 			"Rangefinder",
-			"SMG_01_F",                         // Vermin .45 ACP
-			"SMG_02_F",                         // Sting 9mm
+			"SMG_01_F",
 			"srifle_EBR_F",
 			"srifle_GM6_F",
 			"srifle_LRR_F"
@@ -64,8 +62,7 @@ lootWeapon_list =
 			"arifle_Katiba_C_F",
 			"arifle_MXC_F",
 			"Binocular",
-			"SMG_01_F",                         // Vermin .45 ACP
-			"SMG_02_F"                          // Sting 9mm
+			"SMG_01_F"
 		]
 	],
 	[ // RESEARCH

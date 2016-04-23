@@ -37,7 +37,10 @@ _player addBackpack "B_AssaultPack_rgr";
 
 _player addMagazine "30Rnd_9x21_Mag";
 _player addWeapon "SMG_02_F";
-_player addMagazine "30Rnd_9x21_Mag";
+_player addPrimaryWeaponItem "acc_flashlight";
+_player addMagazine "16Rnd_9x21_Mag";
+_player addWeapon "hgun_Rook40_F";
+_player addSecondaryWeaponItem "muzzle_snds_L";
 _player addMagazine "30Rnd_9x21_Mag";
 _player addItem "FirstAidKit";
 _player selectWeapon "SMG_02_F";

@@ -162,7 +162,7 @@ vehicleWeapons =
 //	"hgun_ACPC2_F",
 //	"arifle_SDAR_F",
 	"SMG_01_F",	// Vermin .45 ACP
-	"SMG_02_F",	// Sting 9mm
+//	"SMG_02_F",	// Sting 9mm
 	"hgun_PDW2000_F",
 	"arifle_TRG20_F",
 	"arifle_TRG21_F",

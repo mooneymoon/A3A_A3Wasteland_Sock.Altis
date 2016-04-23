@@ -59,7 +59,7 @@ _boxList =
 						[
 							["wep", "arifle_Katiba_F", 5, 4],
 							["wep", "LMG_Zafir_F", 2, 4],
-							["wep", "SMG_02_F", 1, 5] // Sting
+							["wep", "hgun_PDW2000_F", 1, 5]
 						]
 					};
 					case (_box isKindOf "Box_IND_Wps_F"):
