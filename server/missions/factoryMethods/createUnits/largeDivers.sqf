@@ -14,8 +14,13 @@ _pos = _this select 1;
 
 // Rifleman
 _leader = _group createUnit ["C_man_polo_1_F", [(_pos select 0) + 10, _pos select 1, 0], [], 1, "Form"];
+removeAllWeapons _leader;
 removeAllAssignedItems _leader;
 removeUniform _leader;
+removeVest _leader;
+removeBackpack _leader;
+removeHeadgear _leader;
+removeGoggles _leader;
 _leader addVest "V_RebreatherIA"; 
 _leader addUniform "U_I_Wetsuit";
 _leader addGoggles "G_Diving";
@@ -29,8 +34,13 @@ _leader addItem "FirstAidKit";
 
 // Rifleman
 _man2 = _group createUnit ["C_man_polo_2_F", [(_pos select 0) + 10, _pos select 1, 0], [], 1, "Form"];
+removeAllWeapons _man2;
 removeAllAssignedItems _man2;
 removeUniform _man2;
+removeVest _man2;
+removeBackpack _man2;
+removeHeadgear _man2;
+removeGoggles _man2;
 _man2 addVest "V_RebreatherIA"; 
 _man2 addUniform "U_I_Wetsuit";
 _man2 addGoggles "G_Diving";
@@ -44,8 +54,13 @@ _man2 addItem "FirstAidKit";
 
 // Rifleman
 _man3 = _group createUnit ["C_man_polo_3_F", [(_pos select 0) + 10, _pos select 1, 0], [], 1, "Form"];
+removeAllWeapons _man3;
 removeAllAssignedItems _man3;
 removeUniform _man3;
+removeVest _man3;
+removeBackpack _man3;
+removeHeadgear _man3;
+removeGoggles _man3;
 _man3 addVest "V_RebreatherIA"; 
 _man3 addUniform "U_I_Wetsuit";
 _man3 addGoggles "G_Diving";
@@ -59,8 +74,13 @@ _man3 addItem "FirstAidKit";
 
 // Rifleman
 _man4 = _group createUnit ["C_man_polo_4_F", [(_pos select 0) + 10, _pos select 1, 0], [], 1, "Form"];
+removeAllWeapons _man4;
 removeAllAssignedItems _man4;
 removeUniform _man4;
+removeVest _man4;
+removeBackpack _man4;
+removeHeadgear _man4;
+removeGoggles _man4;
 _man4 addVest "V_RebreatherIA"; 
 _man4 addUniform "U_I_Wetsuit";
 _man4 addGoggles "G_Diving";
@@ -74,8 +94,13 @@ _man4 addItem "FirstAidKit";
 
 // Rifleman
 _man5 = _group createUnit ["C_man_polo_5_F", [(_pos select 0) + 10, _pos select 1, 0], [], 1, "Form"];
+removeAllWeapons _man5;
 removeAllAssignedItems _man5;
 removeUniform _man5;
+removeVest _man5;
+removeBackpack _man5;
+removeHeadgear _man5;
+removeGoggles _man5;
 _man5 addVest "V_RebreatherIA"; 
 _man5 addUniform "U_I_Wetsuit";
 _man5 addGoggles "G_Diving";
@@ -89,8 +114,13 @@ _man5 addItem "FirstAidKit";
 
 // Rifleman
 _man6 = _group createUnit ["C_man_polo_4_F", [(_pos select 0) + 10, _pos select 1, 0], [], 1, "Form"];
+removeAllWeapons _man6;
 removeAllAssignedItems _man6;
 removeUniform _man6;
+removeVest _man6;
+removeBackpack _man6;
+removeHeadgear _man6;
+removeGoggles _man6;
 _man6 addVest "V_RebreatherIA"; 
 _man6 addUniform "U_I_Wetsuit";
 _man6 addGoggles "G_Diving";

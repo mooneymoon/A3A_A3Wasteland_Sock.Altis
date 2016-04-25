@@ -13,8 +13,9 @@ _group = _this select 0;
 _position = _this select 1;
 _soldier = _group createUnit [_soldierTypes call BIS_fnc_selectRandom, _position, [], 0, "NONE"];
 _soldier addUniform "U_I_GhillieSuit";
-_soldier addPrimaryWeaponItem "optic_SOS";
+
 [_soldier, _weaponTypes call BIS_fnc_selectRandom, 3] call BIS_fnc_addWeapon;
+_soldier addPrimaryWeaponItem "optic_SOS";
 
 _soldier spawn refillPrimaryAmmo;
 _soldier call setMissionSkill;
