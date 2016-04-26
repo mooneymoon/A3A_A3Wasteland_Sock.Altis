@@ -145,7 +145,7 @@ _resupplyThread = [_vehicle, _is_uav, _is_static] spawn {
     };
 
     // Abort everything if no Tempest Device in proximity
-    if ({alive _x} count (_vehicle nearEntities [["O_Heli_Transport_04_ammo_F", "I_Truck_02_ammo_F", "O_Truck_03_ammo_F", "B_Truck_01_ammo_F"], RESUPPLY_TRUCK_DISTANCE]) == 0) then {
+    if ({alive _x} count (_vehicle nearEntities [["O_Heli_Transport_04_ammo_F", "I_Truck_02_ammo_F", "O_Truck_03_ammo_F", "B_Truck_01_ammo_F", "B_APC_Tracked_01_CRV_F"], RESUPPLY_TRUCK_DISTANCE]) == 0) then {
       if (_started) then { titleText ["Vehicle resupply aborted.", "PLAIN DOWN", 0.5] };
       mutexScriptInProgress = false;
       breakOut "fn_resupplyTruck";
@@ -165,6 +165,14 @@ _resupplyThread = [_vehicle, _is_uav, _is_static] spawn {
       breakOut "fn_resupplyTruck";
     };
 
+	// Abort if vehicle is Bobcat (to avoid infinite ammo)
+
+    if (typeOf _vehicle == "B_APC_Tracked_01_CRV_F") then {
+      titleText ["You cannot resupply this vehicle.", "PLAIN DOWN", 0.5];
+      mutexScriptInProgress = false;
+      breakOut "fn_resupplyTruck";
+    };
+	
   };
 
   private["_started"];
