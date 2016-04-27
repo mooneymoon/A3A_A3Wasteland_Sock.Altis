@@ -257,11 +257,11 @@ v_restoreVehicle = {
           _obj setAmmoCargo 0;
       };
 
-      case (_object isKindOf "B_APC_Tracked_01_CRV_F"):
+      case (_obj isKindOf "B_APC_Tracked_01_CRV_F"):
       {
-          _object setFuelCargo 0;
+          _obj setFuelCargo 0;
       };
- 
+
       case ({_obj isKindOf _x} count ["C_Van_01_fuel_F", "I_G_Van_01_fuel_F", "O_Heli_Transport_04_fuel_F"] > 0):
       {
           _obj setFuelCargo 10;
