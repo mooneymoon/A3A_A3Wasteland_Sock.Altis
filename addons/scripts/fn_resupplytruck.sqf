@@ -150,6 +150,7 @@ _resupplyThread = [_vehicle, _is_uav, _is_static] spawn {
       mutexScriptInProgress = false;
       breakOut "fn_resupplyTruck";
     };
+
     // Abort everything if player gets out of vehicle
     if (vehicle player != _vehicle && {!(_is_uav || _is_static)}) then {
       if (_started) then { titleText ["Vehicle resupply aborted.", "PLAIN DOWN", 0.5] };
@@ -158,21 +159,11 @@ _resupplyThread = [_vehicle, _is_uav, _is_static] spawn {
     };
 
     // Abort if player gets in the gunner seat
-
     if (_is_static && {!isNull (gunner _vehicle)}) then {
       if (_started) then { titleText ["Vehicle resupply aborted. Someone is using the weapon.", "PLAIN DOWN", 0.5] };
       mutexScriptInProgress = false;
       breakOut "fn_resupplyTruck";
     };
-
-	// Abort if vehicle is Bobcat (to avoid infinite ammo)
-
-    if (typeOf _vehicle == "B_APC_Tracked_01_CRV_F") then {
-      titleText ["You cannot resupply this vehicle.", "PLAIN DOWN", 0.5];
-      mutexScriptInProgress = false;
-      breakOut "fn_resupplyTruck";
-    };
-	
   };
 
   private["_started"];
