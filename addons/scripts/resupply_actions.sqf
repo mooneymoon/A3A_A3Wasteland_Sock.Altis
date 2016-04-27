@@ -176,7 +176,8 @@ resupply_vehicles = [
   'O_Heli_Transport_04_ammo_F',
   'I_Truck_02_ammo_F',
   'O_Truck_03_ammo_F',
-  'B_Truck_01_ammo_F'
+  'B_Truck_01_ammo_F',
+  'B_APC_Tracked_01_CRV_F'
 ];
 
 do_resupply = {
