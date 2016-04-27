@@ -169,12 +169,13 @@ if (["A3W_remoteBombStoreRadius", 0] call getPublicVar > 0) then
 	player addEventHandler ["Fired",
 	{
 	  private["_isShop"];
-		// Remove remote explosives if within 100m of a store
+		// Remove explosives if within 100m of a store
 		if (_this select 1 == "Put") then
 		{
 			_ammo = _this select 4;
 
-			if ({_ammo isKindOf _x} count ["PipeBombBase", "ClaymoreDirectionalMine_Remote_Ammo", "APERSTripMine_Wire_Ammo", "APERSBoundingMine_Range_Ammo", "APERSMine_Range_Ammo", "SLAMDirectionalMine_Wire_Ammo", "ATMine_Range_Ammo"] > 0) then
+			//if ({_ammo isKindOf _x} count ["PipeBombBase", "ClaymoreDirectionalMine_Remote_Ammo"] > 0) then // "touchable" remote explosives only
+			if (_ammo isKindOf "TimeBombCore") then // all explosives
 			{
 				_mag = _this select 5;
 				_bomb = _this select 6;
