@@ -41,7 +41,6 @@ A3W_fnc_addMagazineTurretMortar = {
   _mortar addMagazineTurret ["8Rnd_82mm_Mo_shells",[0]];
   _mortar addMagazineTurret ["8Rnd_82mm_Mo_Flare_white",[0]];
   _mortar addMagazineTurret ["8Rnd_82mm_Mo_LG",[0]];
-  _mortar addWeaponTurret ["FakeWeapon",[0]]; 
   _mortar addWeaponTurret ["mortar_82mm",[0]];
   reload _mortar;
 };
