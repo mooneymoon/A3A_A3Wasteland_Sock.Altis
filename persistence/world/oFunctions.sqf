@@ -362,6 +362,10 @@ o_restoreObject = {
     _obj setRepairCargo _cargo_repair;
   };
 
+  if ({_obj isKindOf _x} count ["Box_NATO_AmmoVeh_F", "Box_East_AmmoVeh_F", "Box_IND_AmmoVeh_F"] > 0) then {
+    _obj setAmmoCargo 0;
+  };
+
   //AddAi to vehicle
   if ([_obj] call sh_isUAV_UGV) then {
     createVehicleCrew _obj;

@@ -104,7 +104,7 @@ if (hasInterface || isServer) then
   [] execVM "addons\Explosives-To-Vehicle\init.sqf";
   [] execVM "addons\JTS_PM\Functions.sqf";
   [] execVM "addons\scripts\servercredits.sqf";
-  [] execVM "addons\scripts\resupply_actions.sqf";
+  [] execVM "addons\resupply\resupply_actions.sqf";
   [] execVM "addons\lsd_nvg\init.sqf";
   [] execVM "addons\vsave\vsfunctions.sqf";
   [] execVM "addons\APOC_Airdrop_Assistance\init.sqf";

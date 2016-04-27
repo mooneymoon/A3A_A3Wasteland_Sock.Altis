@@ -425,7 +425,11 @@ _resupplyThread = [_vehicle, _is_uav, _is_static] spawn {
   if ({_vehicle isKindOf _x} count ["B_Heli_Light_01_F", "B_Heli_Light_01_armed_F", "C_Heli_Light_01_civil_F"] > 0) then {
     // Add flares to those poor helis
     [[_vehicle, [_mag, _turretPath]], "A3W_fnc_addMagazineTurretLheli", _vehicle, false] call BIS_fnc_MP;
-  };  
+  };
+  
+  if ({_vehicle isKindOf _x} count ["B_Truck_01_ammo_F", "O_Truck_02_Ammo_F", "O_Truck_03_ammo_F", "I_Truck_02_ammo_F", "O_Heli_Transport_04_ammo_F"] > 0) then {
+    _vehicle setAmmoCargo 0;
+  };
   
   if (damage _vehicle > 0.001) then {
     call _checkAbortConditions;

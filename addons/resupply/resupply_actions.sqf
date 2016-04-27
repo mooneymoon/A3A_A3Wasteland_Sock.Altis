@@ -1,3 +1,8 @@
+//@file Version: 1.0
+//@file Name: resupply_actions.sqf
+//@file Author: micovery, Gigatek
+//@file Created: 22/01/2015
+//@file Description: Vehicle actions and functions for resupply
 
 A3W_fnc_setVehicleAmmoDef = {
   private["_left", "_right"];
@@ -173,22 +178,15 @@ A3W_fnc_addMagazineTurretOaheli = {
 if (isServer) exitWith {};
 
 resupply_vehicles = [
-  'O_Heli_Transport_04_ammo_F',
-  'I_Truck_02_ammo_F',
-  'O_Truck_03_ammo_F',
-  'B_Truck_01_ammo_F',
-  'B_APC_Tracked_01_CRV_F'
-];
-
-resupply_vehicles_self_reload = [
-  'O_Heli_Transport_04_ammo_F',
-  'I_Truck_02_ammo_F',
-  'O_Truck_03_ammo_F',
-  'B_Truck_01_ammo_F'
+  "O_Heli_Transport_04_ammo_F",
+  "I_Truck_02_ammo_F",
+  "O_Truck_03_ammo_F",
+  "B_Truck_01_ammo_F",
+  "B_APC_Tracked_01_CRV_F"
 ];
 
 do_resupply = {
-  (_this select 3) execVM "addons\scripts\fn_resupplytruck.sqf";
+  (_this select 3) execVM "addons\resupply\fn_resupplytruck.sqf";
 };
 
 
@@ -284,8 +282,7 @@ self_resupply_block_watch = {
         _vehicle isKindOf "B_APC_Tracked_01_CRV_F" && {
          player !=_vehicle && {
          player == driver(_vehicle) && {
-         not(_vehicle isKindOf "StaticWeapon") && {
-         (count(nearestObjects [getPos _vehicle, resupply_vehicles_self_reload, 15]) > 0)}}}}}) exitWith {
+         (count(nearestObjects [getPos _vehicle, ["O_Heli_Transport_04_ammo_F","I_Truck_02_ammo_F","O_Truck_03_ammo_F","B_Truck_01_ammo_F"], 15]) > 0)}}}}) exitWith {
       nil
     };
     _vehicle
