@@ -160,7 +160,6 @@ call compile preprocessFileLineNumbers "client\functions\generateAtmArray.sqf";
 	{
 		_x setVariable ["ownerName", name player, true];
 		_x setVariable ["side", playerSide, true];
-		_x setVariable ["groupOnly", true, true];
 	};
 } forEach pvar_spawn_beacons;
 

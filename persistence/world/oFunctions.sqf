@@ -316,7 +316,7 @@ o_restoreObject = {
   //broadcast the spawn beacon
   if ([_obj] call sh_isBeacon) then {
     pvar_spawn_beacons pushBack _obj;
-    _obj setVariable ["groupOnly", true, true];
+    _obj setVariable ["side", nil, true];
     publicVariable "pvar_spawn_beacons";
   };
 
