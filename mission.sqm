@@ -971,7 +971,7 @@ class Mission
 		class Item11
 		{
 			dataType="Group";
-			side="West";
+			side="Independent";
 			class Entities
 			{
 				items=4;
@@ -983,7 +983,7 @@ class Mission
 						position[]={14496.728,10.355329,5841.8672};
 						angles[]={5.8686786,0,6.0489016};
 					};
-					side="West";
+					side="Independent";
 					flags=2;
 					class Attributes
 					{
@@ -991,7 +991,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=56;
-					type="B_medic_F";
+					type="I_medic_F";
 				};
 				class Item1
 				{
@@ -1001,14 +1001,14 @@ class Mission
 						position[]={14498.228,10.234164,5841.8672};
 						angles[]={0.010669862,0,5.9590368};
 					};
-					side="West";
+					side="Independent";
 					class Attributes
 					{
 						description="Diver";
 						isPlayable=1;
 					};
 					id=57;
-					type="B_medic_F";
+					type="I_medic_F";
 				};
 				class Item2
 				{
@@ -1018,14 +1018,14 @@ class Mission
 						position[]={14499.728,9.7299795,5841.8672};
 						angles[]={0.010669862,0,5.9590368};
 					};
-					side="West";
+					side="Independent";
 					class Attributes
 					{
 						description="Combat Life Saver";
 						isPlayable=1;
 					};
 					id=58;
-					type="B_medic_F";
+					type="I_medic_F";
 				};
 				class Item3
 				{
@@ -1035,14 +1035,14 @@ class Mission
 						position[]={14501.228,9.2261019,5841.8672};
 						angles[]={0.010669862,0,5.9590368};
 					};
-					side="West";
+					side="Independent";
 					class Attributes
 					{
 						description="Engineer";
 						isPlayable=1;
 					};
 					id=59;
-					type="B_engineer_F";
+					type="I_engineer_F";
 				};
 			};
 			class Attributes
@@ -1955,7 +1955,7 @@ class Mission
 		class Item23
 		{
 			dataType="Group";
-			side="East";
+			side="Independent";
 			class Entities
 			{
 				items=4;
@@ -1967,7 +1967,7 @@ class Mission
 						position[]={14507.728,7.5131168,5841.8672};
 						angles[]={0.045303639,0,6.1128521};
 					};
-					side="East";
+					side="Independent";
 					flags=2;
 					class Attributes
 					{
@@ -1975,7 +1975,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=116;
-					type="O_medic_F";
+					type="I_medic_F";
 				};
 				class Item1
 				{
@@ -1985,13 +1985,13 @@ class Mission
 						position[]={14509.228,7.2551804,5841.8672};
 						angles[]={0.045303639,0,6.1128521};
 					};
-					side="East";
+					side="Independent";
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=117;
-					type="O_medic_F";
+					type="I_medic_F";
 				};
 				class Item2
 				{
@@ -2001,14 +2001,14 @@ class Mission
 						position[]={14510.728,6.9970851,5841.8672};
 						angles[]={0.045303639,0,6.1128521};
 					};
-					side="East";
+					side="Independent";
 					class Attributes
 					{
 						description="Combat Life Saver";
 						isPlayable=1;
 					};
 					id=118;
-					type="O_medic_F";
+					type="I_medic_F";
 				};
 				class Item3
 				{
@@ -2018,14 +2018,14 @@ class Mission
 						position[]={14512.228,6.7391486,5841.8672};
 						angles[]={0.045303639,0,6.1128521};
 					};
-					side="East";
+					side="Independent";
 					class Attributes
 					{
 						description="Engineer";
 						isPlayable=1;
 					};
 					id=119;
-					type="O_engineer_F";
+					type="I_engineer_F";
 				};
 			};
 			class Attributes
