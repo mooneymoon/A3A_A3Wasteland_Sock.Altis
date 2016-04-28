@@ -373,12 +373,6 @@ storePurchaseHandle = _this spawn
 					[_itemText] call _showInsufficientFundsError;
 				};
 
-				//Check donor status
-				if (!((getPlayerUID player) call isdonor) && {{_x == _class} count _donatorItems > 0}) exitWith
-				{
-					[_itemText] call _showInsufficientDonatorError;
-				};    
-
 				if !(_itemData call mf_inventory_is_full) then
 				{
 					[_itemData, 1] call mf_inventory_add;
