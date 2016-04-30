@@ -432,6 +432,7 @@ _resupplyThread = [_vehicle, _is_uav, _is_static] spawn {
   };
 
   if (_vehicle isKindOf "B_APC_Tracked_01_CRV_F") then {
+    _vehicle setAmmoCargo 0;
     _vehicle setFuelCargo 0;
     _vehicle setRepairCargo 0;
   };

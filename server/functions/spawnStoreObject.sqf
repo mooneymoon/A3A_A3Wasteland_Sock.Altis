@@ -225,6 +225,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 
 				case (_object isKindOf "B_APC_Tracked_01_CRV_F"):
 				{
+					_object setAmmoCargo 0;
 					_object setFuelCargo 0;
 					_object setRepairCargo 0;
 				};

@@ -259,6 +259,7 @@ v_restoreVehicle = {
 
       case (_obj isKindOf "B_APC_Tracked_01_CRV_F"):
       {
+          _obj setAmmoCargo 0;
           _obj setFuelCargo 0;
           _obj setRepairCargo 0;
       };
