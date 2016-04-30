@@ -12,6 +12,7 @@ cfg_staticWeaponSaving_on = ON_SCALAR(A3W_staticWeaponSaving);
 cfg_spawnBeaconSaving_on = ON_SCALAR(A3W_spawnBeaconSaving);
 cfg_cctvCameraSaving_on = ON_SCALAR(A3W_cctvCameraSaving);
 
+
 cfg_boxSaving_on = ON_SCALAR(A3W_boxSaving);
 cfg_warchestSaving_on = ON_SCALAR(A3W_warchestSaving);
 cfg_warchestMoneySaving_on = ON_SCALAR(A3W_warchestMoneySaving);
@@ -25,7 +26,7 @@ A3W_mineLifetime = OR_SCALAR(A3W_mineLifetime,0);
 A3W_object_saveInterval = OR_POSITIVE(A3W_object_saveInterval,60);
 A3W_player_saveInterval = OR_POSITIVE(A3W_player_saveInterval,60);
 A3W_playersList_saveInterval = OR_POSITIVE(A3W_playersList_saveInterval,60);
-
+A3W_time_saveInterval = OR_POSITIVE(A3W_time_saveInterval,60);
 
 A3W_vehicleLifetime = OR_SCALAR(A3W_vehicleLifetime,0);
 A3W_vehicleMaxUnusedTime = OR_SCALAR(A3W_vehicleMaxUnusedTime,0);
@@ -33,7 +34,6 @@ A3W_vehicle_saveInterval = OR_POSITIVE(A3W_vehicle_saveInterval,60);
 A3W_locked_vehicles_list = OR_ARRAY(A3W_locked_vehicles_list,[]);
 A3W_saveable_mines_list = OR_ARRAY(A3W_saveable_mines_list,[]);
 A3W_storageLifetime = OR_SCALAR(A3W_storageLifetime,0);
-
 
 
 A3W_healthTime = OR_POSITIVE(A3W_healthTime,60*5);
@@ -64,6 +64,7 @@ diag_log format["[INFO] config: A3W_mineLifetime = %1", A3W_mineLifetime];
 diag_log format["[INFO] config: A3W_object_saveInterval = %1", A3W_object_saveInterval];
 diag_log format["[INFO] config: A3W_player_saveInterval = %1", A3W_player_saveInterval];
 diag_log format["[INFO] config: A3W_playersList_saveInterval = %1", A3W_playersList_saveInterval];
+diag_log format["[INFO] config: A3W_time_saveInterval = %1", A3W_time_saveInterval];
 
 
 diag_log format["[INFO] config: A3W_vehicle_saveInterval = %1", A3W_vehicle_saveInterval];

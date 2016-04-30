@@ -72,7 +72,7 @@ if (!isDedicated) then
 		else // Headless
 		{
 			waitUntil {!isNull player};
-			if (typeOf player == "HeadlessClient_F") then
+			if (getText (configFile >> "CfgVehicles" >> typeOf player >> "simulation") == "headlessclient") then
 			{
 				execVM "client\headless\init.sqf";
 			};
@@ -96,7 +96,6 @@ if (hasInterface || isServer) then
   [] execVM "addons\parking\functions.sqf";
   [] execVM "addons\storage\functions.sqf";
   [] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
-  [] execVM "addons\scripts\DynamicWeatherEffects.sqf";
   [] execVM "addons\JumpMF\init.sqf";
   [] execVM "addons\outlw_magRepack\MagRepack_init.sqf";
   [] execVM "addons\Explosives-To-Vehicle\init.sqf";
@@ -107,4 +106,5 @@ if (hasInterface || isServer) then
   [] execVM "addons\vsave\vsfunctions.sqf";
   [] execVM "addons\APOC_Airdrop_Assistance\init.sqf";
   [] execVM "addons\statusBar\statusBar.sqf";   // shows FPS and teamspeak details
+  if (isNil "drn_DynamicWeather_MainThread") then { drn_DynamicWeather_MainThread = [] execVM "addons\scripts\DynamicWeatherEffects.sqf" };
 };
