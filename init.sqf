@@ -28,9 +28,6 @@ X_Server = false;
 X_Client = false;
 X_JIP = false;
 
-//enable weather script
-[] execVM "addons\scripts\SimpleWeatherScript.sqf";
-
 //disable TAW grass Option 'None'
 tawvd_disablenone = true;
 
@@ -99,6 +96,7 @@ if (hasInterface || isServer) then
   [] execVM "addons\parking\functions.sqf";
   [] execVM "addons\storage\functions.sqf";
   [] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
+  [] execVM "addons\scripts\DynamicWeatherEffects.sqf";
   [] execVM "addons\JumpMF\init.sqf";
   [] execVM "addons\outlw_magRepack\MagRepack_init.sqf";
   [] execVM "addons\Explosives-To-Vehicle\init.sqf";
