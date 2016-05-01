@@ -74,7 +74,7 @@ s_processRestartMessage = {
     o_saveLoopActive = true;
     p_saveLoopActive = true;
     pl_saveLoopActive = true;
-	t_saveLoopActive = true;
+    t_saveLoopActive = true;
   };
 
   true
