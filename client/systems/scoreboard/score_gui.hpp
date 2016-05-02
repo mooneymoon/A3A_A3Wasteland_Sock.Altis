@@ -69,7 +69,7 @@ class ScoreGUI : IGUIBack
 			#define PListTopText_H (0.06 * TEXT_SCALE)
 			#define PListTopText_Y (PListBG_Y + ((PListTopBG_H-PListTopText_H)/2))
 
-			x = (PListBG_X + (0.0525 * X_SCALE));
+			x = (PListBG_X + (0.0475 * X_SCALE));
 			y = PListTopText_Y;
 			w = PListTopText_W;
 			h = PListTopText_H;
@@ -81,9 +81,9 @@ class ScoreGUI : IGUIBack
 		#define PListEntryText_H (0.025 * Y_SCALE)
 
 		#define PListHead_Y (PListBG_Y + PListTopBG_H + (0.0075 * X_SCALE))
-		#define PListHead_W (0.1 * X_SCALE)
+		#define PListHead_W (0.075 * X_SCALE)
 		#define PListHead_H PListHeadText_H
-		#define PListHead_X_Padding (0.062 * X_SCALE)
+		#define PListHead_X_Padding (0.058 * X_SCALE)
 		#define PListHead_textSize (0.034 * TEXT_SCALE)
 
 		#define PListEntry_W PListBG_W
@@ -95,8 +95,8 @@ class ScoreGUI : IGUIBack
 
 		// HEADER
 
-		#define PListHead_Name_W (0.22 * X_SCALE)
-		#define PListHead_Name_X (PListEntry_X + (0.0525 * X_SCALE))
+		#define PListHead_Name_W (0.29 * X_SCALE)
+		#define PListHead_Name_X (PListEntry_X + (0.0475 * X_SCALE))
 
 		class PListHead_Name : w_RscStructuredTextLeft
 		{
@@ -106,7 +106,19 @@ class ScoreGUI : IGUIBack
 
 			x = PListHead_Name_X;
 			y = PListHead_Y;
-			w = PListHead_Name_W;
+			w = (PListHead_Name_W + (0.02 * X_SCALE));
+			h = PListHead_H;
+		};
+
+		class PListHead_Bounty : w_RscStructuredTextLeft
+		{
+			idc = scoreGUI_BountyLabel;
+			text = "<t color='#ff5f4a' shadow='0'>- Bounty</t>";
+			size = PListHead_textSize;
+
+			x = (PListHead_Name_X + (0.04 * X_SCALE));
+			y = PListHead_Y;
+			w = PListHead_W;
 			h = PListHead_H;
 		};
 
@@ -186,7 +198,7 @@ class ScoreGUI : IGUIBack
 		};
 
 		#define PListHead_AllKills_W PListHead_W
-		#define PListHead_AllKills_X (PListHead_Captures_X + PListHead_X_Padding + .025)
+		#define PListHead_AllKills_X (PListHead_Captures_X + PListHead_X_Padding)
 
 		class PListHead_AllKills : w_RscStructuredText
 		{
@@ -268,7 +280,7 @@ class ScoreGUI : IGUIBack
 
 		// ENTRY TEMPLATE
 
-		#define PListEntry_Rank_W (0.03 * X_SCALE)
+		#define PListEntry_Rank_W (0.025 * X_SCALE)
 		#define PListEntry_Rank_H PListEntryText_H
 
 		#define PListEntry_Name_W PListHead_Name_W
@@ -329,13 +341,12 @@ class ScoreGUI : IGUIBack
 					w = PListEntry_Rank_W; \
 					h = PListEntry_Rank_H; \
 				}; \
-				class PListEntry##PListEntry_NUM##_Name : w_RscText \
+				class PListEntry##PListEntry_NUM##_Name : w_RscStructuredTextLeft \
 				{ \
 					idc = scoreGUI_PListEntry_Name(PListEntry_NUM); \
-					text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; \
-					sizeEx = PListEntry_textSize; \
+					text = "<t shadow='0'>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</t>"; \
 					x = PListHead_Name_X - TListEntryControls_X; \
-					y = PListEntry_Name_Y; \
+					y = PListEntry_Name_Y + (0.004 * Y_SCALE)); \
 					w = PListEntry_Name_W; \
 					h = PListEntry_Name_H; \
 				}; \
@@ -531,7 +542,7 @@ class ScoreGUI : IGUIBack
 			#define TListTopText_H (0.06 * TEXT_SCALE)
 			#define TListTopText_Y (TListBG_Y + ((TListTopBG_H-TListTopText_H)/2))
 
-			x = (TListBG_X + (0.0525 * X_SCALE));
+			x = (TListBG_X + (0.0475 * X_SCALE));
 			y = TListTopText_Y;
 			w = TListTopText_W;
 			h = TListTopText_H;
@@ -548,7 +559,7 @@ class ScoreGUI : IGUIBack
 		#define TListHead_textSize (0.034 * TEXT_SCALE)
 
 		#define TListHead_Name_W (0.37 * X_SCALE)
-		#define TListHead_Name_X (TListEntry_X + (0.05 * X_SCALE))
+		#define TListHead_Name_X (TListEntry_X + (0.0475 * X_SCALE))
 
 		#define TListEntry_W TListBG_W
 		#define TListEntry_H (0.025 * Y_SCALE)
@@ -618,7 +629,7 @@ class ScoreGUI : IGUIBack
 
 		// ENTRY TEMPLATE
 
-		#define TListEntry_Rank_W (0.03 * X_SCALE)
+		#define TListEntry_Rank_W (0.025 * X_SCALE)
 		#define TListEntry_Rank_H TListEntryText_H
 
 		#define TListEntry_Name_W TListHead_Name_W

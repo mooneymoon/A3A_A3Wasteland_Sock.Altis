@@ -248,13 +248,13 @@ p_getPlayerInfo = {
     ["Name", _name],
     ["LastGroupSide", OR(_groupSide,sideUnknown)],
     ["LastPlayerSide", OR(_playerSide,sideUnknown)],
-    ["BankMoney", _player getVariable ["bmoney", 0]]
+    ["BankMoney", _player getVariable ["bmoney", 0]],
+    ["Bounty", _player getVariable ["bounty", 0]],
+    ["BountyKills", _player getVariable ["bountyKills", []]]
   ] call sock_hash;
 
   (_info)
 };
-
-
 
 p_getPlayerParking = {
   //diag_log format["%1 call p_getPlayerParking", _this];
