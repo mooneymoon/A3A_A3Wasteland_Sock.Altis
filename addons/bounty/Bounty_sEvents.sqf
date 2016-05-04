@@ -23,7 +23,7 @@
 
         _bounty = _recipient getVariable ["bounty", 0];
 
-        if (_bounty + _rewardAmount > ["A3W_atmMaxBalance", 300000] call getPublicVar) exitWith {}; // recipient would exceed or has reached max balance
+        if (_bounty + _rewardAmount > ["A3W_bountyMax", 50000] call getPublicVar) exitWith {}; // recipient would exceed or has reached max balance
 
         _sBalance = _sBalance - (if (!local _sender) then { _cost } else { 0 });
         _bounty = _bounty + _rewardAmount;
@@ -72,9 +72,7 @@
         if (!isPlayer _outlaw || !isPlayer _bountyHunter || _outlaw == _bountyHunter) exitWith {}; // invalid sender or recipient
 
         _hunterBalance = _bountyHunter getVariable ["bmoney", 0];
-
-        if (_hunterBalance + _reward > ["A3W_bountyMax", 100000] call getPublicVar) exitWith {}; // hunter would exceed or has reached max balance
-        _hunterBalance = _hunterBalance + _reward;
+        _hunterBalance = (_hunterBalance + _reward) min (["A3W_atmMaxBalance", 300000] call getPublicVar); // hunter exceeds max atm
 
         _outlaw setVariable ["bounty", 0, true];
         _bountyHunter setVariable ["bmoney", _hunterBalance, true];
