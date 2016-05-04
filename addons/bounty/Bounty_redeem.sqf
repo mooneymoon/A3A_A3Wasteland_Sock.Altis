@@ -29,11 +29,21 @@ if(_noMatch)then{
 [ parseText format
   [ "<t shadow='2' size='1.75' color='#ff5f4a'>Killed!</t><br/>" +
     "<t color='#ff5f4a'>--------------------------------</t><br/>" +
-    "<t size='1.25' color='#ff5f4a'>%1</t><t size='1.25'> is finally dead!</t><br/>" +
+    "<t size='1.25' color='#ff5f4a'>%1</t><t size='1.25'> %4</t><br/>" +
     "<img size='5' image='addons\bounty\icons\kill.paa'/><br/>" +
     "<t color='#ff5f4a'>%2</t> <t>has been rewarded the bounty of $%3</t>",
     name _unit,
     name _killer,
-    _bountyAmount
+    _bountyAmount,
+    [
+      "is finally dead!",
+      "has ceased to be!",
+      "has expired and gone to meet their maker",
+      "has kicked the bucket!",
+      "got fucked up!",
+      "is taking a swim with cement boots",
+      "is now a worm buffet",
+      "is taking a dirt nap"
+    ] call BIS_fnc_selectRandom
    ]
   ] call hintBroadcast;
