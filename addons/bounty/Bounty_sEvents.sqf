@@ -23,7 +23,7 @@
 
         _bounty = _recipient getVariable ["bounty", 0];
 
-        if (_bounty + _rewardAmount > ["A3W_bountyMax", 100000] call getPublicVar) exitWith {}; // recipient would exceed or has reached max balance
+        if (_bounty + _rewardAmount > ["A3W_atmMaxBalance", 300000] call getPublicVar) exitWith {}; // recipient would exceed or has reached max balance
 
         _sBalance = _sBalance - (if (!local _sender) then { _cost } else { 0 });
         _bounty = _bounty + _rewardAmount;
