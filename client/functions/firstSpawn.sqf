@@ -217,6 +217,25 @@ if (["A3W_combatAbortDelay", 0] call getPublicVar > 0) then
 
 _uid = getPlayerUID player;
 
+// Teambalancer
+if (playerSide in [BLUFOR,OPFOR]) then
+{
+	sleep 3;
+	if !(_uid call isAdmin) then
+	{
+		private ["_serverCount","_sideCount"];
+		_serverCount = count playableUnits;
+		_sideCount = playerSide countSide playableUnits;
+		if ((_serverCount) >= 5) then 
+		{
+			if ((_sideCount) > (.4 * _serverCount)) then 
+			{
+				["TeamBalance",false,1] call BIS_fnc_endMission;
+			};
+		};
+	};
+};
+
 if (playerSide in [BLUFOR,OPFOR] && {{_x select 0 == _uid} count pvar_teamSwitchList == 0}) then
 {
 	_startTime = diag_tickTime;

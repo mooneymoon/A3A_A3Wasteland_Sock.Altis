@@ -87,6 +87,12 @@ class CfgDebriefing
 		subtitle = "Thank you for playing @ A3Armory";
 		description = "Server will save the database and restart to increase performance. Please, give the server some time before you join.";
 	};
+	class TeamBalance
+	{
+		title = "You can't do that!";
+		subtitle = "You are being team balanced.";
+		description = "The side you are trying to join has too many players. Please choose another side.";
+	};
 };
 
 class CfgFunctions
