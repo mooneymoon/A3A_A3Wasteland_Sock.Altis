@@ -220,19 +220,20 @@ _uid = getPlayerUID player;
 // Teambalancer
 if (playerSide in [BLUFOR,OPFOR]) then
 {
-	sleep 3;
+	sleep 2;
 	if !(_uid call isAdmin) then
 	{
 		private ["_serverCount","_sideCount"];
 		_serverCount = count playableUnits;
 		_sideCount = playerSide countSide playableUnits;
-		if ((_serverCount) >= 5) then 
+		if (((_serverCount) >= 5) && ((_sideCount) > (.4 * _serverCount))) then 
 		{
-			if ((_sideCount) > (.4 * _serverCount)) then 
-			{
-				["TeamBalance",false,1] call BIS_fnc_endMission;
-			};
+			["TeamBalance",false,1] call BIS_fnc_endMission;
 		};
+	}
+	else 
+	{
+	titleText ["You have used your admin to join a stacked team. Only do this for admin duties.", "PLAIN", 0.5];
 	};
 };
 
