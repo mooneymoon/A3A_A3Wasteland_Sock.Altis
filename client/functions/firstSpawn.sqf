@@ -226,21 +226,21 @@ if (playerSide in [BLUFOR,OPFOR]) then
 		private ["_serverCount","_sideCount"];
 		_serverCount = count playableUnits;
 		_sideCount = playerSide countSide playableUnits;
-		if (((_serverCount) >= 5) && ((_sideCount) > (.4 * _serverCount))) then 
+		if (((_serverCount) >= 5) && ((_sideCount) > (.4 * _serverCount))) then
 		{
 			["TeamBalance",false,1] call BIS_fnc_endMission;
 		};
 	}
-	else 
+	else
 	{
-	titleText ["You have used your admin to join a stacked team. Only do this for admin duties.", "PLAIN", 0.5];
+		titleText ["You have used your admin to join a stacked team. Only do this for admin duties.", "PLAIN", 0.5];
 	};
 };
 
-if (playerSide in [BLUFOR,OPFOR] && {{_x select 0 == _uid} count pvar_teamSwitchList == 0}) then
+if (playerSide in [BLUFOR,OPFOR,INDEPENDENT] && {{_x select 0 == _uid} count pvar_teamSwitchList == 0}) then
 {
 	_startTime = diag_tickTime;
-	waitUntil {sleep 1; diag_tickTime - _startTime >= 180};
+	waitUntil {sleep 1; diag_tickTime - _startTime >= 150};
 
 	pvar_teamSwitchLock = [_uid, playerSide];
 	publicVariableServer "pvar_teamSwitchLock";
@@ -248,7 +248,8 @@ if (playerSide in [BLUFOR,OPFOR] && {{_x select 0 == _uid} count pvar_teamSwitch
 	_side = switch (playerSide) do
 	{
 		case BLUFOR: { "BLUFOR" };
-		case OPFOR:  { "OPFOR" };
+		case OPFOR: { "OPFOR" };
+		case INDEPENDENT: { "INDEPENDENT" };
 	};
 
 	titleText [format ["You have been locked to %1", _side], "PLAIN", 0.5];
