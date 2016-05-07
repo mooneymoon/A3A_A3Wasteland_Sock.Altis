@@ -189,6 +189,7 @@ class AtmGUI
 		type = 77;
 		style = 0;
 		checked = 0;
+		tooltip = "Place a Bounty on your enemies head.\nThe bounty will be rewarded to the killer of that target.\nThe bounty killer and target will not be allowed in the same group.";
 		color[] = {1, 1, 1, 0.7};
 		colorFocused[] = {1, 1, 1, 1};
 		colorHover[] = {1, 1, 1, 1};
@@ -209,9 +210,6 @@ class AtmGUI
 		texturePressedUnchecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
 		textureDisabledChecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
 		textureDisabledUnchecked = "\A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-		tooltipColorText[] = {1, 1, 1, 1};
-		tooltipColorBox[] = {1, 1, 1, 1};
-		tooltipColorShade[] = {1, 1, 1, 1};
 		soundEnter[] = {1, 1, 1, 1};
 		soundPush[] = {1, 1, 1, 1};
 		soundClick[] = {1, 1, 1, 1};

@@ -21,9 +21,11 @@ _bountyChecked = cbChecked _bountyCheckbox;
 
 _players = allPlayers;
 
-if (!(["A3W_atmTransferAllTeams"] call isConfigOn) && !_bountyChecked) then
-{
+if !(["A3W_atmTransferAllTeams"] call isConfigOn) then{
 	_players = [_players, { [_x, player] call A3W_fnc_isFriendly }] call BIS_fnc_conditionalSelect;
+};
+if(_bountyChecked) then{
+	_players = [allPlayers, { !([_x, player] call A3W_fnc_isFriendly) }] call BIS_fnc_conditionalSelect;
 };
 
 _oldPlayers = uiNamespace getVariable ["A3W_AtmGUI_players", ""];
