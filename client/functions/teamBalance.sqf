@@ -10,10 +10,10 @@ if (playerSide in [BLUFOR,OPFOR] && _teamBal > 0) then{
 		if !((getPlayerUID player) call isAdmin) then {
 			if(!isNil "pvar_teamSwitchList")then{
 				{ if (_x select 0 == _uid) exitWith {
-          if(_x select 1 == playerSide)then{
-            //If player is locked to the side that is unbalanced, move their lock to indie
-            _x set [1, INDEPENDENT];
-          };
+					if(_x select 1 == playerSide)then{
+						//If player is locked to the side that is unbalanced, move their lock to indie
+						_x set [1, INDEPENDENT];
+					};
 				} } forEach pvar_teamSwitchList;
 				publicVariable "pvar_teamSwitchList";
 			};
