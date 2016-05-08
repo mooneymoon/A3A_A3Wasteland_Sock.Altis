@@ -17,7 +17,7 @@ externalConfigFolder = "\A3Wasteland_settings";
 if (isServer) then
 {
   vChecksum = compileFinal str call A3W_fnc_generateKey;
-  
+
   // Corpse deletion on disconnect if player alive and player saving on + inventory save
   addMissionEventHandler ["HandleDisconnect",
   {
@@ -25,7 +25,7 @@ if (isServer) then
     _id = _this select 1;
     _uid = _this select 2;
     _name = _this select 3;
-  
+
     diag_log format ["HandleDisconnect - %1 - alive: %2 - local: %3", [_name, _uid], alive _unit, local _unit];
 
     /*
@@ -54,16 +54,16 @@ if (isServer) then
     if (!isNull _unit) then
     {
         _unit addEventHandler ["Respawn", { deleteVehicle (_this select 0) }]; // goddamnit BIS, stahp it
-    };	
-	
+    };
+
     if (!isNil "fn_onPlayerDisconnected") then
     {
       [_id, _uid, _name, _unit] call fn_onPlayerDisconnected;
     };
-      
+
     false
   }];
-  
+
   //Execute Server Side Scripts.
   call compile preprocessFileLineNumbers "server\antihack\setup.sqf";
   [] execVM "server\admins.sqf";
@@ -74,13 +74,13 @@ if (isServer) then
 if (isServer) then
 {
   _serverCompileHandle = [] spawn compile preprocessFileLineNumbers "server\functions\serverCompile.sqf"; // scriptDone stays stuck on false when using execVM on Linux
-  
+
   [] execVM "server\functions\broadcaster.sqf";
   [] execVM "server\functions\relations.sqf";
   [] execVM (externalConfigFolder + "\init.sqf");
-  
+
   waitUntil {scriptDone _serverCompileHandle};
-  
+
   // Broadcast server rules
   if (loadFile (externalConfigFolder + "\serverRules.sqf") != "") then
   {
@@ -150,11 +150,16 @@ if (isServer) then
     "A3W_hcObjSavingID",
     "A3W_headshotNoRevive",
     "A3W_disableUavFeed",
-	"A3W_teamBalance"
+    "A3W_teamBalance",
+    "A3W_bountyEnabled",
+    "A3W_bountyRewardPerc",
+    "A3W_bountyMinStart",
+    "A3W_bountyMax",
+    "A3W_bountyLifetime"
   ];
-  
+
   addMissionEventHandler ["PlayerConnected", fn_onPlayerConnected];
-  addMissionEventHandler ["PlayerDisconnected", fn_onPlayerDisconnected]; 
+  addMissionEventHandler ["PlayerDisconnected", fn_onPlayerDisconnected];
 };
 
 _playerSavingOn = ["A3W_playerSaving"] call isConfigOn;
@@ -203,19 +208,19 @@ if (_playerSavingOn || _objectSavingOn || _vehicleSavingOn || _timeSavingOn || _
   _savingMethod = ["A3W_savingMethod", "profile"] call getPublicVar;
 
   _savingMethod = "sock";
-  
+
   if (_savingMethod == "sock") then {
     A3W_savingMethod = compileFinal "sock";
     A3W_savingMethodName = compileFinal "'sock'";
-  
+
     diag_log format ["[INFO] ### A3W running with %1", call A3W_savingMethodName];
-  
+
     call compile preProcessFileLineNumbers "persistence\fn_sock_custom.sqf";
-  
+
     diag_log format ["[INFO] ### Saving method = %1", call A3W_savingMethodName];
   };
-  
-  
+
+
    if (_savingMethod == "extDB2") then { _savingMethod = "extDB" };
 
   // extDB
@@ -230,7 +235,7 @@ if (_playerSavingOn || _objectSavingOn || _vehicleSavingOn || _timeSavingOn || _
       A3W_extDB_ConfigName = compileFinal str (["A3W_extDB_ConfigName", "A3W"] call getPublicVar);
       A3W_extDB_IniName = compileFinal str (["A3W_extDB_IniName", "a3wasteland"] call getPublicVar);
       A3W_extDB_RconName = compileFinal str (["A3W_extDB_RconName", "A3W"] call getPublicVar);
-      
+
       diag_log format ["[INFO] extDB2 v%1 extension loaded", _version];
     }
     else
@@ -318,22 +323,22 @@ if (_playerSavingOn || _objectSavingOn || _vehicleSavingOn || _timeSavingOn || _
     _hcObjSavingOn = _this select 5;
 
     _oSave = (_objectSavingOn || _vehicleSavingOn || _timeSavingOn || {_playerSavingOn && call A3W_savingMethod == "profile"});
-    
+
     if (_oSave) then
     {
       //[_objectSavingOn, _vehicleSavingOn] call compile preprocessFileLineNumbers "persistence\server\world\precompile.sqf"; //FIXME: may need to re-enable this, or port it to sock saving
     };
-    
-    if (isServer) then 
+
+    if (isServer) then
     {
       A3W_objectIDs = [];
       A3W_vehicleIDs = [];
-     
+
       if (_objectSavingOn) then
       {
         A3W_objectIDs = call compile preprocessFileLineNumbers "persistence\world\oLoad.sqf";
       };
-  
+
       if (_vehicleSavingOn) then
       {
         A3W_vehicleIDs = call compile preprocessFileLineNumbers "persistence\world\vLoad.sqf";

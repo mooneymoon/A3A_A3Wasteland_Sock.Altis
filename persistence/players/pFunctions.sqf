@@ -364,8 +364,12 @@ fn_applyPlayerInfo = {
     {
       case "Donator": { player setVariable ["isDonator", _value > 0] };
       case "BankMoney": { player setVariable ["bmoney", OR(_value,0), true] };
+      case "Bounty": { player setVariable ["bounty", OR(_value,0), true] };
+      case "BountyKills": { player setVariable ["bountyKills", OR(_value,[]), true] };
     };
   } forEach _data;
+
+  call bountyKillsExpired;
 };
 
 fn_applyPlayerStorage = {

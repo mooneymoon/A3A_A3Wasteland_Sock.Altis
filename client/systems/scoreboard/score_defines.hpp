@@ -10,6 +10,8 @@
 
 #define scoreGUI_PList_Length 10
 
+#define scoreGUI_BountyLabel 2001
+
 #define scoreGUI_PListEntry(ID) (43100 + scoreGUI_ID_Offset(ID))
 #define scoreGUI_PListEntry_BG(ID) (scoreGUI_PListEntry(ID) + 1)
 #define scoreGUI_PListEntry_TColor(ID) (scoreGUI_PListEntry(ID) + 2)

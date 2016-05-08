@@ -41,6 +41,10 @@ if (_groupCount < MAX_GROUP_COUNT) then
 };
 if (_groupCount >= MAX_GROUP_COUNT) exitWith { [format ["You cannot have more than %1 group members, including pending invites.", MAX_GROUP_COUNT]] spawn BIS_fnc_guiMessage };*/
 
+//Prevent bounty hunters and bounty victims from being in the same group
+_bountyCheck = [player, _target] call bountyGroupCheck;
+if (!isNil "_bountyCheck") exitWith { [format ["Can't add new member to group because '%1' has collected bounty on '%2'", name (_bountyCheck select 0), name (_bountyCheck select 1)]] spawn BIS_fnc_guiMessage };
+
 //Checks
 if(isNil "_target") exitWith {player globalChat "you must select someone to invite first"};
 if(_target == player) exitWith {player globalChat "you can't invite yourself"};
