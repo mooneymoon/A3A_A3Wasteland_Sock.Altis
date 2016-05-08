@@ -52,6 +52,9 @@ if !(playerSide in [BLUFOR,OPFOR,INDEPENDENT]) exitWith
 	endMission "LOSER";
 };
 
+// Teambalancer
+call compile preprocessFileLineNumbers "client\functions\teamBalance.sqf";
+
 //Setup player events.
 if (!isNil "client_initEH") then { player removeEventHandler ["Respawn", client_initEH] };
 player addEventHandler ["Respawn", { _this spawn onRespawn }];

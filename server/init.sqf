@@ -150,6 +150,7 @@ if (isServer) then
     "A3W_hcObjSavingID",
     "A3W_headshotNoRevive",
     "A3W_disableUavFeed",
+    "A3W_teamBalance",
     "A3W_bountyEnabled",
   	"A3W_bountyRewardPerc",
   	"A3W_bountyMinStart",
