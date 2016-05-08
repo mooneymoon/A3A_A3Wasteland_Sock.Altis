@@ -19,7 +19,7 @@ if (playerSide in [BLUFOR,OPFOR] && _teamBal > 0) then{
 			};
 			["TeamBalance",false,1] call BIS_fnc_endMission;
 		} else {
-			systemChat "You have used your admin to join a stacked team. Only do this for admin duties.";
+			cutText ["You have used your admin to join a stacked team. Only do this for admin duties.", "PLAIN DOWN", 1];
 		};
 	};
 };
