@@ -217,26 +217,6 @@ if (["A3W_combatAbortDelay", 0] call getPublicVar > 0) then
 
 _uid = getPlayerUID player;
 
-// Teambalancer
-if (playerSide in [BLUFOR,OPFOR]) then
-{
-	sleep 2;
-	if !(_uid call isAdmin) then
-	{
-		private ["_serverCount","_sideCount"];
-		_serverCount = count playableUnits;
-		_sideCount = playerSide countSide playableUnits;
-		if (((_serverCount) >= 5) && ((_sideCount) > (.4 * _serverCount))) then
-		{
-			["TeamBalance",false,1] call BIS_fnc_endMission;
-		};
-	}
-	else
-	{
-		titleText ["You have used your admin to join a stacked team. Only do this for admin duties.", "PLAIN", 0.5];
-	};
-};
-
 if (playerSide in [BLUFOR,OPFOR,INDEPENDENT] && {{_x select 0 == _uid} count pvar_teamSwitchList == 0}) then
 {
 	_startTime = diag_tickTime;

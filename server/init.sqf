@@ -149,7 +149,8 @@ if (isServer) then
     "A3W_hcObjSaving",
     "A3W_hcObjSavingID",
     "A3W_headshotNoRevive",
-    "A3W_disableUavFeed"
+    "A3W_disableUavFeed",
+	"A3W_teamBalance"
   ];
   
   ["A3W_join", "onPlayerConnected", { [_id, _uid, _name, _owner, _jip] spawn fn_onPlayerConnected }] call BIS_fnc_addStackedEventHandler;
