@@ -6,7 +6,7 @@ if (playerSide in [BLUFOR,OPFOR] && _teamBal > 0) then{
 	_justPlayers = allPlayers - entities "HeadlessClient_F";
 	_serverCount = count _justPlayers;
 	_sideCount = playerSide countSide _justPlayers;
-	if (_serverCount >= 0 && (_sideCount > (_teamBal/100) * _serverCount)) then{
+	if (_serverCount >= 5 && (_sideCount > (_teamBal/100) * _serverCount)) then{
 		if !((getPlayerUID player) call isAdmin) then {
 			if(!isNil "pvar_teamSwitchList")then{
 				{ if (_x select 0 == _uid) exitWith {
