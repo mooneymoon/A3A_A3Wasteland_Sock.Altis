@@ -44,8 +44,6 @@ if (_success) then {
 	[[netId _vehicle, 1], "A3W_fnc_setLockState", _vehicle] call A3W_fnc_MP; // Unlock
 	_vehicle setVariable ["objectLocked", false, true]; 
 	_vehicle setVariable ["R3F_LOG_disabled",false,true];
-	_vehicle say3D "carlock";
-	sleep 0.5;
 	titleText ["Lock Pick Complete!","PLAIN DOWN"]; titleFadeOut 5;
 };
 _success;
