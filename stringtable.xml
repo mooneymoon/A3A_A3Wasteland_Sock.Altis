@@ -28,7 +28,7 @@
 			<English>You are restricted to the Independent side, due to a teamkill during this server session.</English>
 		</Key>
 		<Key ID="STR_WL_Loading_Teamswitched">
-			<English>You have played as %1 for too long and cannot switch to the other team. If online, ask an admin to unlock you or wait until restart.</English>
+			<English>You have played as %1 for too long and cannot switch to another team. If online, ask an admin to unlock you or wait until restart.</English>
 		</Key>
 	</Package>
 	<Package name="WelcomeMessage">
