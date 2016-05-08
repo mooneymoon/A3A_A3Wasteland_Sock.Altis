@@ -36,7 +36,7 @@ if(_noMatch)then{
     name _killer,
     _bountyAmount,
     [
-    "has kicked the bucket!",
+	"has kicked the bucket!",
 	"got fucked up!",
 	"is taking a swim with cement boots",
 	"is now a worm buffet",
