@@ -36,14 +36,21 @@ if(_noMatch)then{
     name _killer,
     _bountyAmount,
     [
-      "is finally dead!",
-      "has ceased to be!",
-      "has expired and gone to meet their maker",
-      "has kicked the bucket!",
-      "got fucked up!",
-      "is taking a swim with cement boots",
-      "is now a worm buffet",
-      "is taking a dirt nap"
+    "has kicked the bucket!",
+	"got fucked up!",
+	"is taking a swim with cement boots",
+	"is now a worm buffet",
+	"is taking a dirt nap",
+	"became a root inspector",
+	"is checking out the grass from underneath",
+	"is deader than a doornail",
+	"is headed home in a pine box",
+	"is out of their misery",
+	"is sleeping with the fishes",
+	"was WASTED",
+	"is pushing daisies",
+	"got whacked",
+	"is deader than Prince"
     ] call BIS_fnc_selectRandom
    ]
   ] call hintBroadcast;
