@@ -324,7 +324,7 @@ p_addPlayerSave = {
   //diag_log format["_respawn_active = %1", _respawn_active];
 
   def(_unconscious);
-  _unconscious = (_player getVariable ["FAR_isUnconscious", 0] != 0);
+  _unconscious = (_player getVariable ["FAR_isUnconscious", 0] == 1);
   //diag_log format["_unconscious = %1", _unconscious];
 
   def(_reset_save);
