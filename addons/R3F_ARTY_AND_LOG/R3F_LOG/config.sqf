@@ -145,10 +145,17 @@ R3F_LOG_CFG_objets_remorquables_excl =
 [
 	"B_APC_Tracked_01_CRV_F",
 	"B_Truck_01_ammo_F",
+	"B_Truck_01_box_F",
 	"I_Truck_02_ammo_F",
+	"I_Truck_02_box_F",
 	"O_Truck_02_ammo_F",
 	"O_Truck_03_ammo_F",
-	"O_Heli_Transport_04_ammo_F"
+	"O_Heli_Transport_04_ammo_F",
+	"O_Heli_Transport_04_repair_F",
+	"B_Truck_01_repair_F",
+	"O_Truck_02_box_F",
+	"O_Truck_03_repair_F",
+	"Offroad_01_repair_base_F"
 ];
 
 /****** LIFT WITH VEHICLE  ******/
