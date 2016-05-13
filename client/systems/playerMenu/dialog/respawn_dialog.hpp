@@ -159,12 +159,26 @@ class RespawnSelectionDialog
 			idc = respawn_Random_Button;
 			onButtonClick = ""; // Action is now set dynamically in loadRespawnDialog.sqf using buttonSetAction
 			text = "Random";
+			default = true;
 
 			// relative to RspnTopBar
 			#define RspnRandomButton_X (RspnTopBar_X + CENTER(RspnTopBar_W, RspnButton_W)) // centered under RspnTopBar
 
 			x = RspnRandomButton_X;
 			y = RspnRandomButton_Y;
+		};
+
+		class SwitchTeamButton: RspnButton
+		{
+			idc = Switch_Team_Button;
+			text = "Switch to Independent";
+
+			#define SwitchTeamButton_W (0.2 * X_SCALE)
+			#define SwitchTeamButton_X (RspnLine_X + (RspnLine_W - SwitchTeamButton_W)) // right aligned
+
+			x = SwitchTeamButton_X;
+			y = RspnRandomButton_Y;
+			w = SwitchTeamButton_W;
 		};
 
 		/*class RspnPreloadChk: w_RscCheckBox

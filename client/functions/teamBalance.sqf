@@ -1,3 +1,5 @@
+//	@file Name: teamBalance.sqf
+
 // Teambalancer
 _uid = getPlayerUID player;
 _teamBal = ["A3W_teamBalance", 0] call getPublicVar;
