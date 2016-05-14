@@ -37,7 +37,7 @@ if (isServer) then
       {
         if (!(_unit getVariable ["playerSpawning", true]) && getText (configFile >> "CfgVehicles" >> typeOf _unit >> "simulation") != "headlessclient") then
         {
-          [_uid, [], [_unit, false] call fn_getPlayerData] spawn fn_saveAccount;
+          [_unit, _uid, _name] call p_disconnectSave;
         };
 
         deleteVehicle _unit;
