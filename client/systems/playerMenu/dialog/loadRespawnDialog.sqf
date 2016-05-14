@@ -42,15 +42,17 @@ _locMap = _display displayCtrl respawn_Locations_Map;
 _townSpawnCooldown = TOWN_SPAWN_COOLDOWN;
 _spawnBeaconCooldown = SPAWN_BEACON_COOLDOWN;
 
+//Add team switch button
 if(playerSide in [BLUFOR, OPFOR] && !isNil "pvar_teamSwitchList")then{
 	_switchTeamButton ctrlShow true;
 	teamSwitchCode = {
 	  [] spawn{
 	    _uid = getPlayerUID player;
 	    if(["You will return to the lobby and be locked to Independent. Do you wish to continue?", "Confirm", true, true] call BIS_fnc_guiMessage)then{
-	      [pvar_teamSwitchList, _uid] call fn_removeFromPairs;
-	      [pvar_teamSwitchList, _uid, INDEPENDENT] call fn_setToPairs;
-	      publicVariable "pvar_teamSwitchList";
+		  pvar_teamSwitchUnlock = _uid;
+		  publicVariableServer "pvar_teamSwitchUnlock";
+		  pvar_teamSwitchLock = [_uid, INDEPENDENT];
+		  publicVariableServer "pvar_teamSwitchLock";
 	      endMission "LOSER";
 	    };
 	  };

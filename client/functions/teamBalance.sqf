@@ -9,15 +9,16 @@ if (playerSide in [BLUFOR,OPFOR] && _teamBal > 0) then{
 	_serverCount = count _justPlayers;
 	_sideCount = playerSide countSide _justPlayers;
 	if (_serverCount >= 10 && (_sideCount > (_teamBal/100) * _serverCount)) then{
-		if !((getPlayerUID player) call isAdmin) then {
-			if(!isNil "pvar_teamSwitchList")then{
-				{ if (_x select 0 == _uid) exitWith {
-					if(_x select 1 == playerSide)then{
-						//If player is locked to the side that is unbalanced, move their lock to indie
-						_x set [1, INDEPENDENT];
-					};
-				} } forEach pvar_teamSwitchList;
-				publicVariable "pvar_teamSwitchList";
+		if !(_uid call isAdmin) then {
+			_prevSide = [pvar_teamSwitchList, _uid] call fn_getFromPairs;
+			if(!isNil "_prevSide")then{
+				if(_prevSide == playerSide)then{
+					//If player is locked to the side that is unbalanced, move their lock to indie
+					pvar_teamSwitchUnlock = _uid;
+					publicVariableServer "pvar_teamSwitchUnlock";
+					pvar_teamSwitchLock = [_uid, INDEPENDENT];
+					publicVariableServer "pvar_teamSwitchLock";
+				};
 			};
 			["TeamBalance",false,1] call BIS_fnc_endMission;
 		} else {
