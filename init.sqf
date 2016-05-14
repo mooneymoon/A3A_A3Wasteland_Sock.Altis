@@ -98,7 +98,6 @@ if (hasInterface || isServer) then
   [] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
   [] execVM "addons\JumpMF\init.sqf";
   [] execVM "addons\outlw_magRepack\MagRepack_init.sqf";
-  [] execVM "addons\Explosives-To-Vehicle\init.sqf";
   [] execVM "addons\JTS_PM\Functions.sqf";
   [] execVM "addons\scripts\servercredits.sqf";
   [] execVM "addons\resupply\resupply_actions.sqf";
