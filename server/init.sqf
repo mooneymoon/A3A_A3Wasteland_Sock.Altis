@@ -3,7 +3,7 @@
 // ******************************************************************************************
 //	@file Version: 1.1
 //	@file Name: init.sqf
-//	@file Author: [404] Deadbeat, [GoT] JoSchaap, AgentRev, micovery
+//	@file Author: [404] Deadbeat, [GoT] JoSchaap, AgentRev
 //	@file Created: 20/11/2012 05:19
 //	@file Description: The server init.
 //	@file Args:
@@ -155,8 +155,12 @@ if (isServer) then
 		"A3W_bountyLifetime"
 	];
 
-	["A3W_join", "onPlayerConnected", { [_id, _uid, _name, _owner, _jip] call fn_onPlayerConnected }] call BIS_fnc_addStackedEventHandler;
-	["A3W_quit", "onPlayerDisconnected", { [_id, _uid, _name, _owner, _jip] call fn_onPlayerDisconnected }] call BIS_fnc_addStackedEventHandler;
+	// Must be called before below mission events will work
+	["A3_v158_bug", "onPlayerConnected", {}] call BIS_fnc_addStackedEventHandler;
+	["A3_v158_bug", "onPlayerDisconnected", {}] call BIS_fnc_addStackedEventHandler;
+
+	addMissionEventHandler ["PlayerConnected", fn_onPlayerConnected];
+	addMissionEventHandler ["PlayerDisconnected", fn_onPlayerDisconnected];
 };
 
 _playerSavingOn = ["A3W_playerSaving"] call isConfigOn;
@@ -202,7 +206,8 @@ if (_playerSavingOn || _objectSavingOn || _vehicleSavingOn || _timeSavingOn || _
 {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//_savingMethod = ["A3W_savingMethod", "profile"] call getPublicVar;
+	_savingMethod = ["A3W_savingMethod", "profile"] call getPublicVar;
+
 	_savingMethod = "sock";
 
 	if (_savingMethod == "sock") then {
@@ -215,6 +220,7 @@ if (_playerSavingOn || _objectSavingOn || _vehicleSavingOn || _timeSavingOn || _
 
 		diag_log format ["[INFO] ### Saving method = %1", call A3W_savingMethodName];
 	};
+
 
 	if (_savingMethod == "extDB2") then { _savingMethod = "extDB" };
 
@@ -291,7 +297,7 @@ if (_playerSavingOn || _objectSavingOn || _vehicleSavingOn || _timeSavingOn || _
 
 	if (isServer && _playerSavingOn) then
 	{
-		_setupPlayerDB = [] spawn compile preprocessFileLineNumbers "persistence\players\s_setupPlayerDB.sqf"; // scriptDone stays stuck on false on Linux servers when using execVM
+		_setupPlayerDB = [] spawn compile preprocessFileLineNumbers "persistence\players\s_setupPlayerDB.sqf"; // scriptDone stays stuck on false when using execVM on Linux
 
 		// profileNamespace doesn't save antihack logs
 		if (_savingMethod != "profile") then
@@ -300,7 +306,7 @@ if (_playerSavingOn || _objectSavingOn || _vehicleSavingOn || _timeSavingOn || _
 			{
 				waitUntil {scriptDone _this};
 
-				["A3W_flagCheckOnJoin", "onPlayerConnected", { [_uid, _name, _owner] spawn fn_kickPlayerIfFlagged }] call BIS_fnc_addStackedEventHandler;
+				addMissionEventHandler ["PlayerConnected", { (_this select [1,3]) spawn fn_kickPlayerIfFlagged }];
 
 				// force check for non-JIP players
 				{ waitUntil {!isNull player}; [player] remoteExec ["A3W_fnc_checkPlayerFlag", 2] } remoteExec ["call", -2];
@@ -319,10 +325,10 @@ if (_playerSavingOn || _objectSavingOn || _vehicleSavingOn || _timeSavingOn || _
 
 		_oSave = (_objectSavingOn || _vehicleSavingOn || _timeSavingOn || {_playerSavingOn && call A3W_savingMethod == "profile"});
 
-		if (_oSave) then
+		/*if (_oSave) then
 		{
-			//[_objectSavingOn, _vehicleSavingOn] call compile preprocessFileLineNumbers "persistence\server\world\precompile.sqf"; //FIXME: may need to re-enable this, or port it to sock saving
-		};
+			[_objectSavingOn, _vehicleSavingOn] call compile preprocessFileLineNumbers "persistence\server\world\precompile.sqf";
+		};*/
 
 		if (isServer) then
 		{
