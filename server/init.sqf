@@ -33,14 +33,21 @@ if (isServer) then
 
 		if (alive _unit) then
 		{
-			if (!(_unit call A3W_fnc_isUnconscious) && ["A3W_playerSaving"] call isConfigOn) then
+			if (_unit call A3W_fnc_isUnconscious) then
 			{
-				if (!(_unit getVariable ["playerSpawning", true]) && getText (configFile >> "CfgVehicles" >> typeOf _unit >> "simulation") != "headlessclient") then
+				[_unit] spawn dropPlayerItems;
+			}
+			else
+			{
+				if (["A3W_playerSaving"] call isConfigOn) then
 				{
-					[_unit, _uid, _name] call p_disconnectSave;
-				};
+					if (!(_unit getVariable ["playerSpawning", true]) && getText (configFile >> "CfgVehicles" >> typeOf _unit >> "simulation") != "headlessclient") then
+					{
+						[_unit, _uid, _name] call p_disconnectSave;
+					};
 
-				deleteVehicle _unit;
+					deleteVehicle _unit;
+				};
 			};
 		}
 		else
