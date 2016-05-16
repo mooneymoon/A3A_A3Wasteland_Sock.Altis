@@ -26,6 +26,7 @@ if !(["A3W_atmTransferAllTeams"] call isConfigOn) then{
 };
 if(_bountyChecked) then{
 	_players = [allPlayers, { !([_x, player] call A3W_fnc_isFriendly) }] call BIS_fnc_conditionalSelect;
+	_players = _players - entities "HeadlessClient_F";
 };
 
 _oldPlayers = uiNamespace getVariable ["A3W_AtmGUI_players", ""];
