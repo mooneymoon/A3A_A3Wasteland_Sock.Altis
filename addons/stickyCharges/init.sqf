@@ -4,17 +4,37 @@
 //	@file Name: init.sqf
 //	@file Author: AgentRev
 
+// Sticky Charges addon v1.02 by AgentRev
+
 // This addon can freely be integrated in any mission/mod outside of A3Wasteland, without the need to ask for permission, as long as LICENSE.txt is included in the addon folder.
 
 // WARNING: This script uses inGameUISetEventHandler, which may cause conflicts with other scripts relying on that command, see bottom of file for more info
+
+// If needed, BattleEye whitelist:
+//	- createvehicle.txt: !="Sign_Sphere10cm_F"
+//	- publicvariable.txt: !="pvar_A3W_stickyCharges_vecDirUp"
+//	- setvariable.txt: !"^A3W_stickyCharges_"
 
 #include "defines.sqf" // adjust settings in there as needed!
 
 #define STICKY_CHARGE_ADDON_ROOT "addons\stickyCharges" // mission folder path where this script is placed
 #define STICKY_CHARGE_COMPILE compileFinal // compile or compileFinal
 
-if (!hasInterface) exitWith {};
+if (isServer) then
+{
+	if (!isNil "A3W_stickyCharges_dummyCleanup") then { terminate A3W_stickyCharges_dummyCleanup };
+	A3W_stickyCharges_dummyCleanup = execVM (STICKY_CHARGE_ADDON_ROOT + "\dummyCleanup.sqf");
 
+	A3W_fnc_stickyCharges_disconnectCleanup = STICKY_CHARGE_COMPILE preprocessFileLineNumbers (STICKY_CHARGE_ADDON_ROOT + "\disconnectCleanup.sqf");
+	["A3W_stickyCharges_disconnectCleanup", "onPlayerDisconnected", { _uid spawn A3W_fnc_stickyCharges_disconnectCleanup }] call BIS_fnc_addStackedEventHandler;
+};
+
+"pvar_A3W_stickyCharges_vecDirUp" addPublicVariableEventHandler compile preprocessFileLineNumbers (STICKY_CHARGE_ADDON_ROOT + "\pvarVecDirUp.sqf");
+
+if (!isNil "A3W_stickyCharges_initVecDirUp") then { terminate A3W_stickyCharges_initVecDirUp };
+A3W_stickyCharges_initVecDirUp = execVM (STICKY_CHARGE_ADDON_ROOT + "\initVecDirUp.sqf");
+
+if (!hasInterface) exitWith {};
 
 A3W_stickyCharges_surfaceIcon = getText (configfile >> "CfgInGameUI" >> "Cursor" >> "explosive");
 
@@ -29,10 +49,8 @@ A3W_fnc_stickyCharges_firedEvent = STICKY_CHARGE_COMPILE preprocessFileLineNumbe
 A3W_fnc_stickyCharges_keyDown = STICKY_CHARGE_COMPILE preprocessFileLineNumbers (STICKY_CHARGE_ADDON_ROOT + "\keyDown.sqf");
 A3W_fnc_stickyCharges_mouseButtonDown = STICKY_CHARGE_COMPILE preprocessFileLineNumbers (STICKY_CHARGE_ADDON_ROOT + "\mouseButtonDown.sqf");
 
-
 if (!isNil "A3W_stickyCharges_drawSurfaceIcon_eventID") then { removeMissionEventHandler ["Draw3D", A3W_stickyCharges_drawSurfaceIcon_eventID] };
 A3W_stickyCharges_drawSurfaceIcon_eventID = addMissionEventHandler ["Draw3D", A3W_fnc_stickyCharges_drawSurfaceIcon];
-
 
 with uiNamespace do
 {
@@ -49,15 +67,14 @@ with uiNamespace do
 	A3W_stickyCharges_oldDisplay = findDisplay 46;
 };
 
-
 waitUntil {!isNull player};
 
+// Fired event
 _eventID = player getVariable "A3W_stickyCharges_fired_eventID";
 if (!isNil "_eventID") then { player removeEventHandler ["Fired", _eventID] };
 
 _eventID = player addEventHandler ["Fired", A3W_fnc_stickyCharges_firedEvent];
 player setVariable ["A3W_stickyCharges_fired_eventID", _eventID];
-
 
 inGameUISetEventHandler ["Action", "_this call A3W_fnc_stickyCharges_actionEvent"];
 inGameUISetEventHandler ["PrevAction", "_this call A3W_fnc_stickyCharges_actionSelect"];
