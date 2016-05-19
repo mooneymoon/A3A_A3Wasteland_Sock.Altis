@@ -23,7 +23,7 @@ A3W_spawnBeaconSpawnHeight = 1500; // Altitude in meters at which players will s
 A3W_maxSpawnBeacons = 2;		   // Maxmimum number of spawn beacons (0 = disabled)
 A3W_uavControl = "group";          // Restrict connection to UAVs based on ownership ("owner", "group", "side")
 A3W_disableUavFeed = 0;            // Force disable UAV PIP feed to prevent thermal camera abuse (0 = no, 1 = yes)
-A3W_teamBalance = 40;              // Max percentage of players allowed on Opfor/Blufor from total server population (0 = off)
+A3W_teamBalance = 40;              // Max percentage of players allowed on Opfor/Blufor from total server population (0 = off) Bluefor/opfor can only exceed this limit if both grow in similar size.
 
 // Store settings
 A3W_showGunStoreStatus = 1;        // Show enemy and friendly presence at gunstores on map (0 = no, 1 = yes)
