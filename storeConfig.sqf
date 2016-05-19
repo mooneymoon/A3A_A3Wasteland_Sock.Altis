@@ -65,7 +65,7 @@ rifleArray = compileFinal str
 	["MXM Rifle (Black)", "arifle_MXM_Black_F", 300],
 	["DMR Rifle", "srifle_DMR_01_F", 375],
 	["Mk18 ABR Rifle", "srifle_EBR_F", 450],
-	
+
 	// DLC
 	["Mk14 Rifle (Camo) [DLC]", "srifle_DMR_06_camo_F", 450],
 	["Mk14 Rifle (Olive) [DLC]", "srifle_DMR_06_olive_F", 450],
@@ -307,7 +307,7 @@ headArray = compileFinal str
 	["Protector Helmet (Urban)", "H_HelmetO_oucamo", 50, "hat"],
 	["Defender Helmet (Hex)", "H_HelmetLeaderO_ocamo", 50, "hat"],
 	["Defender Helmet (Urban)", "H_HelmetLeaderO_oucamo", 50, "hat"],
-	// ["Assassin Helmet (Hex)", "H_HelmetSpecO_ocamo", 50, "hat"],
+	["Assassin Helmet (Hex)", "H_HelmetSpecO_ocamo", 50, "hat"],
 	["Assassin Helmet (Black)", "H_HelmetSpecO_blk", 50, "hat"],
 	["MICH", "H_HelmetIA", 50, "hat"],
 	// ["MICH (Camo)", "H_HelmetIA_net", 50, "hat"],
@@ -493,7 +493,8 @@ vestArray = compileFinal str
 	["Rebreather (AAF)", "V_RebreatherIA", 200, "vest"],
 	["Carrier Lite (Green)", "V_PlateCarrier1_rgr", -1, "vest"],
 	["Carrier Lite (Black)", "V_PlateCarrier1_blk", -1, "vest"],
-	["Carrier Rig (Green)", "V_PlateCarrier3_rgr", -1, "vest"],
+	["Carrier Rig (Green)", "V_PlateCarrier2_rgr", -1, "vest"],
+	["Carrier Rig (Black)", "V_PlateCarrier2_blk", -1, "vest"],
 	["Carrier GL Rig (Green)", "V_PlateCarrierGL_rgr", -1, "vest"],
 	["Carrier GL Rig (Black)", "V_PlateCarrierGL_blk", -1, "vest"],
 	["Carrier GL Rig (MTP)", "V_PlateCarrierGL_mtp", -1, "vest"],
@@ -577,7 +578,7 @@ genItemArray = compileFinal str
 	["Binoculars", "Binocular", 50, "binoc"],
 	["Rangefinder", "Rangefinder", 150, "binoc"],
 	["Laser Designator", "Laserdesignator", 1000, "binoc"],
-	["Laser Designator Batteries", "Laserbatteries", 25, "mag"],	
+	["Laser Designator Batteries", "Laserbatteries", 25, "mag"],
 	["Chemlight (Blue)", "Chemlight_blue", 25, "mag"],
 	["Chemlight (Red)", "Chemlight_red", 25, "mag"],
 	["Chemlight (Green)", "Chemlight_green", 25, "mag"],
@@ -667,7 +668,7 @@ genObjectsArray = compileFinal str
 	["Scaffolding", "Land_Scaffolding_F", 250, "object"],
 	["Campfire", "Campfire_burning_F", 2250, "object"],
 	["Camping Chair", "Land_CampingChair_V1_F", 100, "object"],
-	["Camping Table", "Land_CampingTable_F", 150, "object"]	
+	["Camping Table", "Land_CampingTable_F", 150, "object"]
 ];
 
 allGenStoreVanillaItems = compileFinal str (call genItemArray + call genObjectsArray + call allStoreGear);

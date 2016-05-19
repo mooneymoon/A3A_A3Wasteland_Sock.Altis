@@ -73,7 +73,7 @@ player addEventHandler ["WeaponAssembled",
 		_obj setVariable ["vehicle_abandoned_by", getPlayerUID _player, true];
 		_obj setVariable ["ownerN", name _player, true];
 		_obj setVariable ["baseSaving_spawningTime", nil, true];
-		_obj setVariable ["baseSaving_hoursAlive", nil, true];	
+		_obj setVariable ["baseSaving_hoursAlive", nil, true];
 		trackVehicle = _obj;
 		publicVariableServer "trackVehicle";
 
@@ -156,8 +156,7 @@ player addEventHandler ["InventoryClosed",
 		{
 			cameraOn switchCamera "EXTERNAL";
 		};
-		
- 		uiSleep 0.25;
+
 		false
 	};
 };
@@ -196,6 +195,7 @@ if (["A3W_remoteBombStoreRadius", 0] call getPublicVar > 0) then
 				{
 					_bomb setVariable ["ownerUID", getPlayerUID player, true];
 				};
+				} forEach entities "CAManBase";
 			};
 		};
 	}];
