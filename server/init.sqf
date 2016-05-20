@@ -33,6 +33,15 @@ if (isServer) then
 
 		if (alive _unit) then
 		{
+			private ["_veh"];
+			_veh = vehicle _unit;
+			if (_veh != _unit) then
+			{
+				[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call A3W_fnc_MP; // Unlock
+				_veh setVariable ["objectLocked", false, true];
+				_veh setVariable ["R3F_LOG_disabled",false,true];
+			};
+
 			if (_unit call A3W_fnc_isUnconscious) then
 			{
 				[_unit] spawn dropPlayerItems;

@@ -11,10 +11,6 @@ private ["_veh", "_push", "_vecDir"];
 _veh = vehicle player;
 if (_veh == player) exitWith {};
 
-[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call A3W_fnc_MP; // Unlock
-_veh setVariable ["objectLocked", false, true]; 
-_veh setVariable ["R3F_LOG_disabled",false,true];
-
 moveOut player;
 
 if (_veh isKindOf "Plane") then
