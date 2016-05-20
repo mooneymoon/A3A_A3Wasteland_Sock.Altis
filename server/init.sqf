@@ -22,8 +22,6 @@ if (isServer) then
 	addMissionEventHandler ["HandleDisconnect",
 	{
 		params ["_unit", "_id", "_uid", "_name"];
-		private ["_veh"];
-		_veh = vehicle _unit;
 
 		if (isNil "A3W_serverSetupComplete") exitWith
 		{
@@ -33,15 +31,18 @@ if (isServer) then
 
 		diag_log format ["HandleDisconnect - %1 - alive: %2 - local: %3", [_name, _uid], alive _unit, local _unit];
 
+		_veh = objectParent _unit;
+
+		// force unlock vehicle if not owned by player OR if somebody else is still inside
+		if (alive _veh && (_veh getVariable ["ownerUID","0"] != _uid || {{alive _x} count (crew _veh - [_unit]) > 0})) then
+		{
+			[netId _veh, 1] remoteExec ["A3W_fnc_setLockState", _veh]; // Unlock
+			_veh setVariable ["objectLocked", false, true];
+			_veh setVariable ["R3F_LOG_disabled", false, true];
+		};
+
 		if (alive _unit) then
 		{
-			if (_veh != _unit) then
-			{
-				[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call remoteExec; // Unlock
-				_veh setVariable ["objectLocked", false, true];
-				_veh setVariable ["R3F_LOG_disabled",false,true];
-			};
-
 			if (_unit call A3W_fnc_isUnconscious) then
 			{
 				[_unit] spawn dropPlayerItems;
@@ -61,12 +62,9 @@ if (isServer) then
 		}
 		else
 		{
-			if (_veh != _unit) then
+			if (!isNull _veh) then
 			{
 				_unit spawn fn_ejectCorpse;
-				[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call remoteExec; // Unlock
-				_veh setVariable ["objectLocked", false, true];
-				_veh setVariable ["R3F_LOG_disabled",false,true];
 			};
 		};
 
