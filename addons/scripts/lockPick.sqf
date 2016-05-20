@@ -20,9 +20,9 @@ _checks = {
     switch (true) do {
         case (!alive player): {}; // player is dead, no need for a notification
         case (vehicle player != player): {_text = "Lock Pick Failed! You can't do that in a vehicle."};
-		case (((player distance _vehicle) - ((sizeOf typeOf _vehicle / 3) max 4)) > 2): {_text = "Lock Pick Failed! You are too far away from the vehicle."};
-		case (!isNull (_vehicle getVariable ["R3F_LOG_est_deplace_par", objNull])): { _text = "Lock Pick Failed! Somebody moved the vehicle."};
-		case (!isNull (_vehicle getVariable ["R3F_LOG_est_transporte_par", objNull])): { _text = "Lock Pick Failed! Somebody loaded or towed the vehicle."};
+        case (((player distance _vehicle) - ((sizeOf typeOf _vehicle / 3) max 4)) > 2): {_text = "Lock Pick Failed! You are too far away from the vehicle."};
+        case (!isNull (_vehicle getVariable ["R3F_LOG_est_deplace_par", objNull])): { _text = "Lock Pick Failed! Somebody moved the vehicle."};
+        case (!isNull (_vehicle getVariable ["R3F_LOG_est_transporte_par", objNull])): { _text = "Lock Pick Failed! Somebody loaded or towed the vehicle."};
         case (!alive _vehicle): {_error = "The vehicle is too damaged to pick."};
         case (doCancelAction): {_text = "Lock Pick Cancelled!"; doCancelAction = false;};
         default {
@@ -41,9 +41,9 @@ if (isNil "_vehicle" || {typeName _vehicle != typeName objNull || {isNull _vehic
 };
 
 if (_success) then {
-	[[netId _vehicle, 1], "A3W_fnc_setLockState", _vehicle] call A3W_fnc_MP; // Unlock
-	_vehicle setVariable ["objectLocked", false, true]; 
-	_vehicle setVariable ["R3F_LOG_disabled",false,true];
-	titleText ["Lock Pick Complete!","PLAIN DOWN"]; titleFadeOut 5;
+  [[netId _vehicle, 1], "A3W_fnc_setLockState", _vehicle] call remoteExec; // Unlock
+  _vehicle setVariable ["objectLocked", false, true]; 
+  _vehicle setVariable ["R3F_LOG_disabled",false,true];
+  titleText ["Lock Pick Complete!","PLAIN DOWN"]; titleFadeOut 5;
 };
 _success;

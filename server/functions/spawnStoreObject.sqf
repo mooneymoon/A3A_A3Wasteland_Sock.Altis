@@ -173,7 +173,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 					_object setVariable ["A3W_missionVehicle", false, false];
 					_object setVariable ["ownerUID", getPlayerUID _player, true];
 					_object setVariable ["vehicle_first_user", getPlayerUID _player, true];
-					_object setVariable ["vehicle_abandoned_by", getPlayerUID _player, true];					
+					_object setVariable ["vehicle_abandoned_by", getPlayerUID _player, true];
 					_object setVariable ["ownerN", name _player, true];
 					_object setVariable ["baseSaving_spawningTime", nil, true];
 					_object setVariable ["baseSaving_hoursAlive", nil, true];
@@ -181,14 +181,14 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 				};
 
 				if ({_object isKindOf _x} count A3W_autosave_vehicles_list > 0) then {
-					[[netId _object, 2], "A3W_fnc_setLockState", _object] call A3W_fnc_MP; // Lock
+					[[netId _object, 2], "A3W_fnc_setLockState", _object] call remoteExec; // Lock
 					_object setVariable ["objectLocked", true, true];
 					_object setVariable ["R3F_LOG_disabled", true, true];
 					_object setVariable ["A3W_purchasedVehicle", true, true];
 					_object setVariable ["A3W_missionVehicle", false, false];
 					_object setVariable ["ownerUID", getPlayerUID _player, true];
 					_object setVariable ["vehicle_first_user", getPlayerUID _player, true];
-					_object setVariable ["vehicle_abandoned_by", getPlayerUID _player, true];					
+					_object setVariable ["vehicle_abandoned_by", getPlayerUID _player, true];
 					_object setVariable ["ownerN", name _player, true];
 					_object setVariable ["baseSaving_spawningTime", nil, true];
 					_object setVariable ["baseSaving_hoursAlive", nil, true];

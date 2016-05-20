@@ -37,7 +37,7 @@ if (isServer) then
 		{
 			if (_veh != _unit) then
 			{
-				[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call A3W_fnc_MP; // Unlock
+				[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call remoteExec; // Unlock
 				_veh setVariable ["objectLocked", false, true];
 				_veh setVariable ["R3F_LOG_disabled",false,true];
 			};
@@ -64,7 +64,7 @@ if (isServer) then
 			if (_veh != _unit) then
 			{
 				_unit spawn fn_ejectCorpse;
-				[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call A3W_fnc_MP; // Unlock
+				[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call remoteExec; // Unlock
 				_veh setVariable ["objectLocked", false, true];
 				_veh setVariable ["R3F_LOG_disabled",false,true];
 			};
