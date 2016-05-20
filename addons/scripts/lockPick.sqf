@@ -41,7 +41,7 @@ if (isNil "_vehicle" || {typeName _vehicle != typeName objNull || {isNull _vehic
 };
 
 if (_success) then {
-  [[netId _vehicle, 1], "A3W_fnc_setLockState", _vehicle] call remoteExec; // Unlock
+  [netId _vehicle, 1] remoteExec ["A3W_fnc_setLockState", _vehicle]; // Unlock
   _vehicle setVariable ["objectLocked", false, true]; 
   _vehicle setVariable ["R3F_LOG_disabled",false,true];
   titleText ["Lock Pick Complete!","PLAIN DOWN"]; titleFadeOut 5;

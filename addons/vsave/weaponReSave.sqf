@@ -41,7 +41,7 @@ if (isNil "_vehicle" || {typeName _vehicle != typeName objNull || {isNull _vehic
 };
 
 if (_success) then {
-  [[netId _vehicle, 1], "A3W_fnc_setLockState", _vehicle] call remoteExec; // Unlock
+  [netId _vehicle, 1] remoteExec ["A3W_fnc_setLockState", _vehicle]; // Unlock
   _vehicle setVariable ["A3W_purchasedVehicle", true, true];
   _vehicle setVariable ["A3W_missionVehicle", false, false];
   _vehicle setVariable ["ownerUID", getPlayerUID player, true];
