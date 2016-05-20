@@ -22,6 +22,8 @@ if (isServer) then
 	addMissionEventHandler ["HandleDisconnect",
 	{
 		params ["_unit", "_id", "_uid", "_name"];
+		private ["_veh"];
+		_veh = vehicle _unit;
 
 		if (isNil "A3W_serverSetupComplete") exitWith
 		{
@@ -33,8 +35,6 @@ if (isServer) then
 
 		if (alive _unit) then
 		{
-			private ["_veh"];
-			_veh = vehicle _unit;
 			if (_veh != _unit) then
 			{
 				[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call A3W_fnc_MP; // Unlock
@@ -61,9 +61,12 @@ if (isServer) then
 		}
 		else
 		{
-			if (vehicle _unit != _unit) then
+			if (_veh != _unit) then
 			{
 				_unit spawn fn_ejectCorpse;
+				[[netId _veh, 1], "A3W_fnc_setLockState", _veh] call A3W_fnc_MP; // Unlock
+				_veh setVariable ["objectLocked", false, true];
+				_veh setVariable ["R3F_LOG_disabled",false,true];
 			};
 		};
 
