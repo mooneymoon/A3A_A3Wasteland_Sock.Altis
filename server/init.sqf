@@ -155,7 +155,6 @@ if (isServer) then
 		"A3W_hcObjCachingID",
 		"A3W_hcObjSaving",
 		"A3W_hcObjSavingID",
-		"A3W_headshotNoRevive",
 		"A3W_disableUavFeed",
 		"A3W_teamBalance",
 		"A3W_bountyEnabled",
@@ -163,6 +162,8 @@ if (isServer) then
 		"A3W_bountyMinStart",
 		"A3W_bountyMax",
 		"A3W_bountyLifetime"
+		"A3W_disableBuiltInThermal",
+		"A3W_headshotNoRevive"
 	];
 
 	addMissionEventHandler ["PlayerConnected", fn_onPlayerConnected];
