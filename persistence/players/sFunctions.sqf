@@ -595,30 +595,13 @@ fn_getPlayerFlag = {
 };
 
 fn_kickPlayerIfFlagged = {
-  ARGVX3(0,_UID,"");
-  ARGVX3(1,_name,"");
+  params ["_id", "_uid", "_name", "_jip", "_owner"];
 
   def(_flag);
-  _flag = [_UID] call fn_getPlayerFlag;
+  _flag = [_uid] call fn_getPlayerFlag;
   if (!isARRAY(_flag) || {count(_flag) == 0}) exitWith {};
 
-  // Super mega awesome dodgy player kick method
-  "Logic" createUnit [[1,1,1], createGroup sideLogic,
-  ("
-    this spawn {
-      if (isServer) then {
-        _grp = group _this;
-        deleteVehicle _this;
-        deleteGroup _grp;
-      }
-      else {
-        waitUntil {!isNull player};
-        if (getPlayerUID player == '" + _UID + "') then {
-          preprocessFile 'client\functions\quit.sqf';
-        };
-      };
-    }
-  ")];
+  { call compile preprocessFile "client\functions\quit.sqf" } remoteExecCall ["call", _owner];
 
   //_oldName = _flag select 0; // always empty for extDB
   def(_hackType);
@@ -627,7 +610,7 @@ fn_kickPlayerIfFlagged = {
   _hackType = [_flag, "hackType", "unknown"] call fn_getFromPairs;
   _hackValue = [_flag, "hackValue", "unknown"] call fn_getFromPairs;
 
-  diag_log format ["ANTI-HACK: %1 (%2) was kicked due to having been flagged for [%3, %4] in the past", _name, _UID, _hackType, _hackValue];
+  diag_log format ["ANTI-HACK: %1 (%2) was kicked due to having been flagged for [%3, %4] in the past", _name, _uid, _hackType, _hackValue];
 
 };
 
