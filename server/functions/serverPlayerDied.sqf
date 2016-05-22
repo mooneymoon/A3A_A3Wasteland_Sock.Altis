@@ -27,6 +27,7 @@ if (isPlayer _unit) then
 };
 
 //Pay bounty to killer
+_enemyKill = !([_killer, _unit] call A3W_fnc_isFriendly);
 _bountyAmount = _unit getVariable ["bounty", 0];
 if(_enemyKill && _bountyAmount > 0 && ["A3W_bountyEnabled"] call isConfigOn)then{
 	[_unit, _killer, _bountyAmount] call bountyRedeem;
