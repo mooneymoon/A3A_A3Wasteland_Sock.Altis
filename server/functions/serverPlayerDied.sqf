@@ -26,6 +26,12 @@ if (isPlayer _unit) then
 	[_unit, "deathCount", 1] call fn_addScore;
 };
 
+//Pay bounty to killer
+_bountyAmount = _unit getVariable ["bounty", 0];
+if(_enemyKill && _bountyAmount > 0 && ["A3W_bountyEnabled"] call isConfigOn)then{
+	[_unit, _killer, _bountyAmount] call bountyRedeem;
+};
+
 _backpack = unitBackpack _unit;
 
 if (!isNull _backpack) then
