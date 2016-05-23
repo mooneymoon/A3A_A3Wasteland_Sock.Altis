@@ -41,7 +41,7 @@ storePurchaseHandle = _this spawn
 
 	_donatorItems =
 	[
-		"arifle_Mk20C_F",
+    "arifle_Mk20C_F",
     "arifle_MXC_Black_F", 
     "arifle_MX_Black_F",
     "arifle_MX_GL_Black_F",
