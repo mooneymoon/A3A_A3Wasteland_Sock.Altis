@@ -189,7 +189,7 @@ class AtmGUI
 		type = 77;
 		style = 0;
 		checked = 0;
-		tooltip = "Place a Bounty on your enemies head.\nThe bounty will be rewarded to the killer of that target.\nThe bounty killer and target will not be allowed in the same group.";
+		tooltip = "Place a Bounty on your enemies head.\nThe bounty will be rewarded to the killer of that target.\nThe bounty killer and target are NOT allowed\nto work together or join the same group.";
 		color[] = {1, 1, 1, 0.7};
 		colorFocused[] = {1, 1, 1, 1};
 		colorHover[] = {1, 1, 1, 1};
