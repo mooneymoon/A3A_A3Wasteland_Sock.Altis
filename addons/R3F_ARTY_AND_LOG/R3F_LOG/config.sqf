@@ -274,5 +274,8 @@ R3F_LOG_CFG_objets_deplacables =
 	"Land_Shoot_House_Wall_F",
 	"Land_Stone_8m_F",
 	"Land_ToiletBox_F",
-	"Land_BarrelWater_F"
+	"Land_BarrelWater_F",
+	"Campfire_burning_F",
+	"Land_CampingChair_V1_F",
+	"Land_CampingTable_F"
 ];
