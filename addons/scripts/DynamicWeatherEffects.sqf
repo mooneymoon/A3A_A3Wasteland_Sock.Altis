@@ -26,7 +26,7 @@ _minWeatherChangeTimeMin = 15;
 
 // Maximum time in minutes for the weather (fog and overcast) to change. Must be greater than or equal to _minWeatherChangeTimeMin.
 // (Suggested value: 20).
-_maxWeatherChangeTimeMin = 25;
+_maxWeatherChangeTimeMin = 30;
 
 // Minimum time in minutes that weather (fog and overcast) stays constant between weather changes. Must be less than or equal to 0 and
 // greater than or equal to _minWeatherChangeTimeMin. (Suggested value: 5).
@@ -42,7 +42,7 @@ _minimumFog = 0;
 
 // Fog intensity never exceeds this value. Must be between 0 and 1 and greater than or equal to _minimumFog
 // (0 = no fog, 1 = pea soup). (Suggested value: 0.3).
-_maximumFog = 0;
+_maximumFog = 0.3;
 
 // New ArmA3 facilities added by Bewilderbeest - not currently taken into account due to engine syncing bugs and weird behavior
 _minimumFogDecay = 0.0;
@@ -72,11 +72,11 @@ _minimumWind = 0;
 
 // Wind vector strength never exceeds this value. Must be greater or equal to 0 and greater than or equal to _minimumWind.
 // (Suggested value: 7.5).
-_maximumWind = 6;
+_maximumWind = 7.5;
 
 // Probability in percent for wind to change when weather changes. If set to 0 then wind will never change. If set to 100 then rain will
 // change every time the weather (fog or overcast) start to change. (Suggested value: 25);
-_windChangeProbability = 30;
+_windChangeProbability = 25;
 
 // A "rain interval" is defined as "a time interval during which it may rain in any intensity (or it may not rain at all)". When overcast
 // goes above 0.75, a chain of rain intervals (defined below) is started. It cycles on until overcast falls below 0.75. At overcast
