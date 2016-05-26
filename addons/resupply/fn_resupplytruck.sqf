@@ -239,8 +239,6 @@ _resupplyThread = [_vehicle, _is_uav, _is_static] spawn {
     player action ["EngineOff", _vehicle];
   };
 
-  _vehicle setFuel 0;
-
   {
     private["_turretCfg", "_turretPath", "_turretMags", "_turretMagPairs"];
     _turretCfg = _x select 0;
