@@ -229,7 +229,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 					_object setFuelCargo 0;
 					_object setRepairCargo 0;
 				};
-				
+
 				case ({_object isKindOf _x} count ["C_Van_01_fuel_F", "I_G_Van_01_fuel_F", "O_Heli_Transport_04_fuel_F"] > 0):
 				{
 					_object setFuelCargo 10;
@@ -381,6 +381,11 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 			{
 				_object call fn_manualVehicleSave;
 			};*/
+
+			if (_object isKindOf "AllVehicles") then
+			{
+				_object setOwner owner _player; // tentative workaround for exploding vehicles
+			};
 		};
 	};
 };
