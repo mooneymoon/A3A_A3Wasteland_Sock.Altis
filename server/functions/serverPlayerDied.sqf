@@ -21,11 +21,12 @@ if (isPlayer _unit && {["A3W_playerSaving"] call isConfigOn}) then
 	(getPlayerUID _unit) call fn_deletePlayerSave;
 };
 
-_killer = _this call A3W_fnc_registerKillScore;
+private _killer = (_this select [0,3]) call A3W_fnc_registerKillScore;
+private _backpack = unitBackpack _unit;
 
-if (isPlayer _unit) then
+if (!isNull _backpack) then
 {
-	[_unit, "deathCount", 1] call fn_addScore;
+	_backpack setVariable ["processedDeath", diag_tickTime];
 };
 
 //Pay bounty to killer
@@ -33,15 +34,6 @@ _enemyKill = !([_killer, _unit] call A3W_fnc_isFriendly);
 _bountyAmount = _unit getVariable ["bounty", 0];
 if(_enemyKill && _bountyAmount > 0 && ["A3W_bountyEnabled"] call isConfigOn)then{
 	[_unit, _killer, _bountyAmount] call bountyRedeem;
-};
-
-_backpack = unitBackpack _unit;
-private _killer = (_this select [0,3]) call A3W_fnc_registerKillScore;
-private _backpack = unitBackpack _unit;
-
-if (!isNull _backpack) then
-{
-	_backpack setVariable ["processedDeath", diag_tickTime];
 };
 
 // Eject corpse from vehicle once stopped
