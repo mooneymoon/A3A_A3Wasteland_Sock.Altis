@@ -84,8 +84,6 @@ _unit spawn
 		_unit setVariable ["FAR_killerSuspects", []];
 	};
 
-	sleep 0.5;
-
 	if (UNCONSCIOUS(_unit) && alive _unit) then
 	{
 		_unit setVariable ["FAR_headshotHitTimeout", true];
