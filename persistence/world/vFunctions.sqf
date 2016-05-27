@@ -224,7 +224,7 @@ v_restoreVehicle = {
   };
 
   if (isARRAY(_cargo_backpacks)) then {
-    { _obj addBackpackCargoGlobal _x } forEach _cargo_weapons;
+    { _obj addBackpackCargoGlobal _x } forEach _cargo_backpacks;
   };
 
   if (isARRAY(_cargo_items)) then {
