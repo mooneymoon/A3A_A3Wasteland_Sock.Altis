@@ -5707,10 +5707,11 @@ class Mission
 		class Item267
 		{
 			dataType="Marker";
-			position[]={23025.889,13.56551,19433.859};
+			position[]={8724.3066,13.565552,15851.997};
 			name="Roadblock_1";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=180;
 			id=425;
 		};
 		class Item268
@@ -5729,6 +5730,7 @@ class Mission
 			name="Roadblock_3";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=123;
 			id=427;
 		};
 		class Item270
@@ -5738,24 +5740,27 @@ class Mission
 			name="Roadblock_4";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=67;
 			id=428;
 		};
 		class Item271
 		{
 			dataType="Marker";
-			position[]={9129.1836,89.711617,15596.495};
+			position[]={9129.0186,89.692383,15596.45};
 			name="Roadblock_5";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=20;
 			id=429;
 		};
 		class Item272
 		{
 			dataType="Marker";
-			position[]={3953.4282,49.114174,12210.488};
+			position[]={3953.4282,49.114136,12210.31};
 			name="Roadblock_6";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=100;
 			id=430;
 		};
 		class Item273
@@ -5765,15 +5770,17 @@ class Mission
 			name="Roadblock_7";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=335;
 			id=431;
 		};
 		class Item274
 		{
 			dataType="Marker";
-			position[]={9041.0586,18.735415,21335.852};
+			position[]={9041.4648,18.734634,21335.74};
 			name="Roadblock_8";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=50;
 			id=432;
 		};
 		class Item275
@@ -5783,6 +5790,7 @@ class Mission
 			name="Roadblock_9";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=36;
 			id=433;
 		};
 		class Item276
@@ -5792,6 +5800,7 @@ class Mission
 			name="Roadblock_10";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=18;
 			id=434;
 		};
 		class Item277
