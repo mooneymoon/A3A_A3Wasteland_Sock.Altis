@@ -37,7 +37,7 @@ grenadier_loadout =  {
   _unit addItem "NVGoggles";
   _unit assignItem "NVGoggles";
 };
-  
+
 support_loadout = {
   private["_unit"];
   _unit = _this;
@@ -58,7 +58,7 @@ support_loadout = {
 sniper_loadout = {
   private["_unit"];
   _unit = _this;
-  
+
   _unit addUniform "U_I_GhillieSuit";
   _unit addBackpack "B_AssaultPack_rgr";
   _unit addMagazine "30Rnd_65x39_caseless_mag";
@@ -75,7 +75,7 @@ sniper_loadout = {
   _unit addItem "ItemGps";
   _unit assignItem "ItemGps";
   _unit addItem "ItemCompass";
-  _unit assignItem "ItemCompass";  
+  _unit assignItem "ItemCompass";
   _unit addItem "NVGoggles";
   _unit assignItem "NVGoggles";
 };
@@ -83,7 +83,7 @@ sniper_loadout = {
 aa_loadout = {
   private["_unit"];
   _unit = _this;
-  
+
   _unit addUniform "U_IG_Guerilla1_1";
   _unit addMagazine "30Rnd_9x21_Mag";
   _unit addMagazine "30Rnd_9x21_Mag";
@@ -124,7 +124,7 @@ at_loadout = {
 leader_loadout = {
   private["_unit"];
   _unit = _this;
-  
+
   _unit addUniform "U_IG_leader";
   _unit addMagazine "30Rnd_65x39_caseless_green_mag_Tracer";
   _unit addMagazine "30Rnd_65x39_caseless_green_mag_Tracer";
@@ -148,7 +148,7 @@ leader_loadout = {
 rifleman_loadout = {
   private["_unit"];
   _unit = _this;
-  
+
   _unit addUniform "U_IG_Guerilla2_3";
   _unit addMagazine "30Rnd_65x39_caseless_mag_Tracer";
   _unit addBackpack "B_AssaultPack_rgr";
@@ -161,7 +161,7 @@ rifleman_loadout = {
   _unit enablegunlights "forceOn";
 };
 
-weighted_list = 
+weighted_list =
 [
   [0.5, sniper_loadout],
   [1, aa_loadout],
@@ -170,11 +170,11 @@ weighted_list =
   [0.8, rifleman_loadout],
   [1, grenadier_loadout]
 ];
-  
+
 get_weighted_loadout = {
   private["_items"];
   _items = weighted_list;
-  
+
   //calculate the total weight
   private["_totalSum", "_weight"];
   _totalSum = 0;
@@ -182,20 +182,20 @@ get_weighted_loadout = {
     _weight = _x select 0;
     _totalSum = _weight + _totalSum;
   } forEach _items;
-  
+
   //pick at random from the distribution
   private["_index", "_i", "_item", "_sum"];
   _index = random _totalSum;
   _sum = 0;
   _i = 0;
-  
+
   while {_sum < _index} do {
     _item = _items select _i;
     _weight = _item select 0;
     _sum = _sum + _weight;
     _i = _i + 1;
   };
-  
+
   ((_items select (_i - 1)) select 1)
 };
 
@@ -215,22 +215,24 @@ for "_i" from 1 to _nbUnits do
 
   _unit addVest "V_PlateCarrier1_rgr";
   _unit addItem "FirstAidKit";
-  
+
   if (_unit == leader _group) then {
     _unit call leader_loadout;
     _unit setRank "SERGEANT";
   }
-  else {  
+  else {
     private["_loadout"];
     _loadout = call get_weighted_loadout;
     _unit call _loadout;
   };
-	
+
   _unit addRating 1e11;
   _unit spawn addMilCap;
   _unit spawn refillPrimaryAmmo;
   _unit call setMissionSkill;
   _unit addEventHandler ["Killed", server_playerDied];
 };
+
+[_pos] call addDefensiveMines;
 
 [_group, _pos] call defendArea;

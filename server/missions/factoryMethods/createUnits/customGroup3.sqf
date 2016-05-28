@@ -28,7 +28,7 @@ for "_i" from 1 to _nbUnits do
 	_uPos = _pos vectorAdd ([[random _radius, random _radius, 0], random 360] call BIS_fnc_rotateVector2D);
 	_unit = _group createUnit [_unitTypes call BIS_fnc_selectRandom, _uPos, [], 0, "Form"];
 	_unit setPosATL _uPos;
-	
+
 	removeAllWeapons _unit;
 	removeAllAssignedItems _unit;
 	removeUniform _unit;
@@ -121,5 +121,7 @@ for "_i" from 1 to _nbUnits do
 	_unit call setMissionSkill;
 	_unit addEventHandler ["Killed", server_playerDied];
 };
+
+[_pos] call addDefensiveMines;
 
 [_group, _pos, "LandVehicle"] call defendArea;

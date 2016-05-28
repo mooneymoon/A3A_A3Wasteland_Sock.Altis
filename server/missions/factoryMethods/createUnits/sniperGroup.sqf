@@ -180,4 +180,6 @@ _leader = leader _group;
 	_x addEventHandler ["Killed", server_playerDied];
 } forEach units _group;
 
+[_pos] call addDefensiveMines;
+
 [_group, _pos] call defendArea;

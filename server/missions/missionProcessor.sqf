@@ -9,7 +9,7 @@ if (!isServer) exitwith {};
 #define MISSION_LOCATION_COOLDOWN (10*60)
 #define MISSION_TIMER_EXTENSION (15*60)
 
-private ["_controllerSuffix", "_missionTimeout", "_availableLocations", "_missionLocation", "_leader", "_marker", "_failed", "_complete", "_startTime", "_oldAiCount", "_leaderTemp", "_newAiCount", "_adjustTime", "_lastPos", "_floorHeight"];
+private ["_controllerSuffix", "_missionTimeout", "_availableLocations", "_missionLocation", "_leader", "_marker", "_failed", "_complete", "_startTime", "_oldAiCount", "_leaderTemp", "_newAiCount", "_adjustTime", "_lastPos", "_floorHeight", "_defMines"];
 
 // Variables that can be defined in the mission script :
 private ["_missionType", "_locationsArray", "_aiGroup", "_missionPos", "_missionPicture", "_missionHintText", "_successHintMessage", "_failedHintMessage"];
@@ -114,7 +114,8 @@ if (_failed) then
 	// Mission failed
 
 	{ moveOut _x; deleteVehicle _x } forEach units _aiGroup;
-
+	if (!isNil "_defMines") then { { deleteVehicle _x; } forEach _defMines };
+	
 	if (!isNil "_failedExec") then { call _failedExec };
 
 	if (!isNil "_vehicle" && {typeName _vehicle == "OBJECT"}) then
@@ -157,6 +158,7 @@ else
 		_floorHeight = (getPos _leader) select 2;
 		_lastPos set [2, (_lastPos select 2) - _floorHeight];
 	};
+	if (!isNil "_defMines") then { { deleteVehicle _x; } forEach _defMines };
 
 	if (!isNil "_successExec") then { call _successExec };
 
