@@ -108,6 +108,14 @@ sh_mineAmmo2Vehicle = {
 
 sh_isSaveableMine ={
   ARGVX2(0,_arg);
+  private["_locations","_markers"];
+  _locations = [];
+  _markers = ["MissionSpawnMarkers","RoadblockMissionMarkers","SniperMissionMarkers"];
+
+  {
+    _location = getMarkerPos _x; 
+    _locations pushBack _location;
+  } forEach _markers;
 
   def(_class);
   if (isOBJECT(_arg)) then {
@@ -117,7 +125,7 @@ sh_isSaveableMine ={
     _class = _arg;
   };};
 
-  (!(isNil "_class") && {_class in A3W_saveable_mines_list})
+  (!(isNil "_class") && {_class in A3W_saveable_mines_list} && {_class distance _locations < 85})
 };
 
 
