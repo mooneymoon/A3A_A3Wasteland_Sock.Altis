@@ -109,3 +109,11 @@ if (hasInterface || isServer) then
   [] execVM "addons\bounty\init.sqf";
   if (isNil "drn_DynamicWeather_MainThread") then { drn_DynamicWeather_MainThread = [] execVM "addons\scripts\DynamicWeatherEffects.sqf" };
 };
+
+// Remove line drawings from map
+(createTrigger ["EmptyDetector", [0,0,0], false]) setTriggerStatements
+[
+	"!triggerActivated thisTrigger", 
+	"thisTrigger setTriggerTimeout [30,30,30,false]",
+	"{if (markerShape _x == 'POLYLINE') then {deleteMarker _x}} forEach allMapMarkers"
+];

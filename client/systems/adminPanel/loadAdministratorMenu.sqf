@@ -20,6 +20,7 @@ if ([_uid, 2] call isAdmin) then {
 
 	_panelOptions = ["Player Management",
 					"Show Server FPS",
+					"Map Markers Log",
 					"Debug Menu"
 	];
 

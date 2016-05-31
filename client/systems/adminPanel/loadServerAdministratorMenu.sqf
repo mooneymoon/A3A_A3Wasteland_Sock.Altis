@@ -20,6 +20,7 @@ if ([_uid, 3] call isAdmin) then {
 
 	_panelOptions = ["Player Management",
 					"Show Server FPS",
+					"Map Markers Log",
 					"Debug Menu",
 					"Vehicle Management",
 					"Access Vehicle Store",

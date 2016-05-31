@@ -36,27 +36,32 @@ if (_uid call isAdmin) then
 				{
 					hint format["Server FPS: %1",serverFPS];
 				};
-				case 2: //Debug Menu
+				case 2: //Markers log
+				{
+					closeDialog 0;
+					createDialog "MarkerLog";
+				};
+				case 3: //Debug Menu
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\loadDebugMenu.sqf";
 				};
-				case 3: //Full Vehicle Management
+				case 4: //Full Vehicle Management
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\vehicleManagement.sqf";
 				};
-				case 4: //Access Vehicle Store
+				case 5: //Access Vehicle Store
 				{
 					closeDialog 0;
 					[] call loadVehicleStore;
 				};
-				case 5: //Object search menu
+				case 6: //Object search menu
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\loadObjectSearch.sqf";
 				};
-				case 6: //Teleport
+				case 7: //Teleport
 				{
 					closeDialog 0;
 					["A3W_teleport", "onMapSingleClick",
@@ -68,7 +73,7 @@ if (_uid call isAdmin) then
 					}] call BIS_fnc_addStackedEventHandler;
 					hint "Click on map to teleport";
 				};
-				case 7: //// toggle God mode
+				case 8: //// toggle God mode
 				{
 					execVM "client\systems\adminPanel\toggleGodMode2.sqf";
 				};
