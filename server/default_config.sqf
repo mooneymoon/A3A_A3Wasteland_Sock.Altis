@@ -84,8 +84,6 @@ A3W_mineLifetime = 2*24;           // Maximum lifetime in hours for mines across
 A3W_vehicleLifetime = 0;           // Maximum lifetime in hours for saved vehicles across server restarts, regardless of usage (0 = no time limit)
 A3W_vehicleMaxUnusedTime = 2*24;   // Maximum parking time in hours after which unused saved vehicles will be marked for deletion (0 = no time limit)
 A3W_storageLifetime = 0;           // Maximum lifetime in horus for player's private storage (0 = no time limit)
-A3W_timeSaving = 0;                // Save and restore in-game clock time between server restarts (0 = no, 1 = yes)
-A3W_weatherSaving = 1;             // Save and restore weather settings between server restarts (0 = no, 1 = yes)
 
 PDB_PlayerFileID = "A3W_";         // Player savefile prefix (change this in case you run multiple servers from the same folder)
 PDB_ObjectFileID = "A3W_";         // Object savefile prefix (change this in case you run multiple servers from the same folder)
@@ -94,13 +92,11 @@ PDB_MessagesFileID = "A3W_";       // Messages savefile prefix (change this in c
 PDB_AdminLogFileID = "A3W_";       // Admin log savefile prefix (change this in case you run multiple servers from the same folder)
 PDB_HackerLogFileID = "A3W_";      // Hacker log savefile prefix (change this in case you run multiple servers from the same folder)
 PDB_PlayersListFileID = "A3W_";    // PlayerList savefile prefix (change this in case you run multiple servers from the same folder)
-PDB_ServerTimeFileID = "A3W_";     // ServerTime savefile prefix (change this in case you run multiple servers from the same folder)
 
 A3W_vehicle_saveInterval = 60*60;   // Number of seconds between vehicle saves
 A3W_object_saveInterval = 60*60;    // Number of seconds between object saves
 A3W_player_saveInterval = 600;      // Number of seconds between player saves
 A3W_playersList_saveInterval = 600; // Number of seconds between player list saves
-A3W_time_saveInterval = 60*60;      // Number of seconds between time saves
 
 A3W_saveable_vehicles_list = ["StaticWeapon", "C_Kart_01_F", "Quadbike_01_base_F", "Hatchback_01_base_F", "SUV_01_base_F", "Offroad_01_base_F", "Van_01_base_F", "MRAP_01_base_F", "MRAP_02_base_F", "MRAP_03_base_F", "Truck_01_base_F", "Truck_02_base_F", "Truck_03_base_F", "Wheeled_APC_F", "Tank_F", "Rubber_duck_base_F", "SDV_01_base_F", "Boat_Civil_01_base_F", "Boat_Armed_01_base_F", "Helicopter_Base_F", "Plane", "UGV_01_base_F"];		// List of classes for vehicles that are saveable
 A3W_locked_vehicles_list = [];		// List of class names for vehicles that should be automatically locked upon restore
