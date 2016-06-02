@@ -10,7 +10,7 @@ if (playerSide in [BLUFOR,OPFOR] && _teamBal > 0) then{
 	_sideCount = playerSide countSide _justPlayers;
 	_opposingSide = [BLUFOR, OPFOR] select (playerSide==BLUFOR);
 	_opposingCount = _opposingSide countSide _justPlayers;
-	if (_serverCount >= 10 && (_sideCount > (_teamBal/100) * _serverCount) && (abs (_sideCount-_opposingCount)) > 3 ) then{
+	if (_serverCount >= 15 && (_sideCount > (_teamBal/100) * _serverCount) && (abs (_sideCount-_opposingCount)) > 3 ) then{
 		if !(_uid call isAdmin) then {
 			_prevSide = [pvar_teamSwitchList, _uid] call fn_getFromPairs;
 			if(!isNil "_prevSide")then{
