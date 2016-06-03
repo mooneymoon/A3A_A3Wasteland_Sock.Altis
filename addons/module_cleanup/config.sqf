@@ -39,7 +39,7 @@ pvpfw_cleanUp_weaponHolderTimer = 600; // Weaponholders will be deleted after th
 ///////////////////////////////
 // Clean destroyed buildings //
 ///////////////////////////////
-#define __pvpfw_cleanUp_cleanRuins //comment out this line if you dont want destroyed buildings to be cleaned up
+//#define __pvpfw_cleanUp_cleanRuins //comment out this line if you dont want destroyed buildings to be cleaned up
 pvpfw_cleanUp_ruinRadius = 50; // Destroyed Buildings will be deleted if no entity is in the specified range around them
 
 // Advanced
