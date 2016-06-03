@@ -20,7 +20,7 @@ _setupObjects =
 	_missionPos = markerPos _missionLocation;
 	
 	_aiGroup = createGroup CIVILIAN;
-	[_aiGroup,_missionPos] spawn createsniperGroup;
+	[_aiGroup,_missionPos] call createsniperGroup;
 
 	_aiGroup setCombatMode "RED";
 	_aiGroup setBehaviour "COMBAT";

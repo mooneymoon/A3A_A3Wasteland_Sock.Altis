@@ -114,8 +114,7 @@ if (_failed) then
 	// Mission failed
 
 	{ moveOut _x; deleteVehicle _x } forEach units _aiGroup;
-	if (!isNil "_defMines") then { { deleteVehicle _x; } forEach _defMines };
-	
+
 	if (!isNil "_failedExec") then { call _failedExec };
 
 	if (!isNil "_vehicle" && {typeName _vehicle == "OBJECT"}) then
@@ -158,7 +157,6 @@ else
 		_floorHeight = (getPos _leader) select 2;
 		_lastPos set [2, (_lastPos select 2) - _floorHeight];
 	};
-	if (!isNil "_defMines") then { { deleteVehicle _x; } forEach _defMines };
 
 	if (!isNil "_successExec") then { call _successExec };
 
@@ -199,6 +197,13 @@ else
 	call missionHint;
 
 	diag_log format ["WASTELAND SERVER - %1 Mission%2 complete: %3", MISSION_PROC_TYPE_NAME, _controllerSuffix, _missionType];
+};
+
+if (!isNil "_defMines") then {
+	{ deleteVehicle _x; } forEach _defMines;
+	_missionMines = missionNamespace getVariable ["mission_mines",[]];
+	_missionMines = _missionMines-_defMines;
+	missionNamespace setVariable ["mission_mines", _missionMines];
 };
 
 deleteGroup _aiGroup;

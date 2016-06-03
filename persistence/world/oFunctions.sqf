@@ -697,7 +697,9 @@ o_saveAllObjects = {
   init(_last_save, diag_tickTime);
 
   def(_all_objects);
-  _all_objects = tracked_objects_list + allMines;
+  _missionMines = missionNamespace getVariable ["mission_mines",[]];
+  _allMines = allMines-_missionMines;
+  _all_objects = tracked_objects_list + _allMines;
   //diag_log format["_all_objects = %1", _all_objects];
 
   {
