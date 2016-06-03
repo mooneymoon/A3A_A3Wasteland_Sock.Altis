@@ -32,7 +32,7 @@ switch (_lockState) do
 		_poiMarkers = [];
 
 		{
-			if (getMarkerType _x == "Empty" && {(toLower (_x select [0,8])) in ["genstore","gunstore","vehstore","mission_"]}) then
+			if (getMarkerType _x == "Empty" && {(toLower (_x select [0,8])) in ["genstore","gunstore","vehstore","mission_","sunkenmission_","sniper_","roadblock_","convoymission_"]}) then
 			{
 				_poiMarkers pushBack _x;
 			};

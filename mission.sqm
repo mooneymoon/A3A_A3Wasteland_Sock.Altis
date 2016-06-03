@@ -8,11 +8,11 @@ class EditorData
 	toggles=10;
 	class ItemIDProvider
 	{
-		nextID=468;
+		nextID=472;
 	};
 	class MarkerIDProvider
 	{
-		nextID=225;
+		nextID=230;
 	};
 	class Camera
 	{
@@ -65,7 +65,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=308;
+		items=312;
 		class Item0
 		{
 			dataType="Group";
@@ -6129,5 +6129,41 @@ class Mission
 			colorName="ColorRed";
 			id=467;
 		};
+		class Item308
+		{
+			dataType="Marker";
+			position[]={11877.198,0,22464.334};
+			name="ConvoyMission_1";
+			type="Empty";
+			colorName="ColorPink";
+			id=468;
+		};
+		class Item309
+		{
+			dataType="Marker";
+			position[]={21676.070,0,19098.602};
+			name="ConvoyMission_2";
+			type="Empty";
+			colorName="ColorPink";
+			id=469;
+		};
+		class Item310
+		{
+			dataType="Marker";
+			position[]={4358.6313,0,21123.746};
+			name="ConvoyMission_3";
+			type="Empty";
+			colorName="ColorPink";
+			id=470;
+		};
+		class Item311
+		{
+			dataType="Marker";
+			position[]={5332.31,0,14514.9};
+			name="ConvoyMission_4";
+			type="Empty";
+			colorName="ColorPink";
+			id=471;
+		};		
 	};
 };
