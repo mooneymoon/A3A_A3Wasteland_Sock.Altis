@@ -55,10 +55,16 @@ if !(playerSide in [BLUFOR,OPFOR,INDEPENDENT]) exitWith
 // Teambalancer
 call compile preprocessFileLineNumbers "client\functions\teamBalance.sqf";
 
+// Block side chat for indies
+if (playerSide == INDEPENDENT) then
+{
+	1 enableChannel false;
+};
+
 //Setup player events.
 if (!isNil "client_initEH") then { player removeEventHandler ["Respawn", client_initEH] };
 player addEventHandler ["Respawn", { _this spawn onRespawn }];
-player addEventHandler ["Killed", { _this spawn onKilled }];
+player addEventHandler ["Killed", onKilled];
 
 call compile preprocessFileLineNumbers "addons\far_revive\FAR_revive_init.sqf";
 
@@ -172,9 +178,8 @@ inGameUISetEventHandler ["Action", "_this call A3W_fnc_inGameUIActionEvent"];
 	};
 } forEach pvar_spawn_beacons;
 
-{ _x call A3W_fnc_setupAntiExplode } forEach allMissionObjects "LandVehicle";
-{ _x call A3W_fnc_setupAntiExplode } forEach allMissionObjects "Ship";
 { _x call A3W_fnc_setupAntiExplode } forEach allMissionObjects "Air";
+{ _x call A3W_fnc_setupAntiExplode } forEach allMissionObjects "UGV_01_base_F";
 
 {
 	{

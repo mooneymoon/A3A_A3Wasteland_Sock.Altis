@@ -1,7 +1,7 @@
 respawn="BASE";
 respawnDelay=15;
 disabledAI=1;
-disableChannels[] = {2}; // {0} to disable global, {2} for command channel
+disableChannels[] = {{0,false,true}, {2,true,true}}; // 0 = global, 1 = side, 2 = command // new syntax: {{channel<number>, disableText<bool>, disableVoice<bool>}, ...};
 joinUnassigned = 0;
 enableItemsDropping = 0;
 forceRotorLibSimulation = 0; // Force RotorLib (0 = disable, 1= enable)
@@ -28,6 +28,9 @@ overviewText = "Wasteland is a harsh survival sandbox where two teams and indepe
 overviewTextLocked = "Wasteland is a harsh survival sandbox where two teams and independent players fight for survival.";
 overviewPicture = "mapConfig\Loading.paa";
 loadScreen = "mapConfig\Loading.paa";
+briefing = 0; // if 0, skip Continue button
+
+#include "debugFlag.hpp"
 
 // A3W UI color (default = sky blue)
 
@@ -80,7 +83,7 @@ class RscTitles
 };
 
 class CfgDebriefing
-{  
+{
 	class Reboot
 	{
 		title = "Restarting";
@@ -112,7 +115,7 @@ class CfgNotifications
 
 class CfgSounds
 {
-	sounds[] = 
+	sounds[] =
 	{
 		beep, beep2, beep3, beep4, beep5, beep6, beep7, beep8, beep9
 	};
@@ -121,7 +124,7 @@ class CfgSounds
 			{
                                 sound[] = {"addons\beacondetector\sound\beep.wav", db-10, 0.5};
                                 titles[] = {};
-			};		
+			};
 		class beep2
 			{
                                 sound[] = {"addons\beacondetector\sound\beep.wav", db-10, 0.6};
