@@ -167,7 +167,7 @@ if (["A3W_remoteBombStoreRadius", 0] call getPublicVar > 0) then
 {
 	player addEventHandler ["Fired",
 	{
-	  private["_isShop"];
+	  private["_isShop","_isMarker"];
 		// Remove explosives if within 100m of a store
 		if (_this select 1 == "Put") then
 		{
@@ -179,6 +179,17 @@ if (["A3W_remoteBombStoreRadius", 0] call getPublicVar > 0) then
 				_mag = _this select 5;
 				_bomb = _this select 6;
 				_minDist = ["A3W_remoteBombStoreRadius", 100] call getPublicVar;
+
+				{
+				  _isMarker = (getMarkerType _x == "Empty" && [["sniper_","roadblock_","convoymission_"], _x] call fn_startsWith);
+					if (_isMarker && {_bomb distance _x < _minDist}) exitWith
+					{
+						deleteVehicle _bomb;
+						[player, _mag] call fn_forceAddItem;
+						playSound "FD_CP_Not_Clear_F";
+						titleText [format ["You are not allowed to place explosives within %1m of this mission area.\nThe explosive has been re-added to your inventory.", _minDist], "PLAIN DOWN", 0.5];
+					};
+				} forEach allMapMarkers;
 
 				{
 				  _isShop = (_x getVariable ["storeNPC_setupComplete", false] || { _x getVariable ["is_parking", false]});
