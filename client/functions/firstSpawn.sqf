@@ -182,7 +182,7 @@ if (["A3W_remoteBombStoreRadius", 0] call getPublicVar > 0) then
 
 				{
 				  _isMarker = (getMarkerType _x == "Empty" && [["sniper_","roadblock_","convoymission_"], _x] call fn_startsWith);
-					if (_isMarker && {_bomb distance _x < _minDist}) exitWith
+					if (_bomb distance (markerPos _x) <= _minDist && _isMarker) exitWith
 					{
 						deleteVehicle _bomb;
 						[player, _mag] call fn_forceAddItem;
